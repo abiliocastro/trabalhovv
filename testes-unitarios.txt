@@ -1,0 +1,93 @@
+SISTEMA DE BUSCA DE PRODUTOS
+Administrador
+- nomeDeUsuario: String
+- senha: String
+
+Produto
+- id: long
+- nome: String
+- preco: float
+- quantidade: int
+- lojaFornecedora: String
+
+-------------------------------------------------------------------
+TESTES
+-------------------------------------------------------------------
+
+- TESTES DE INTERFACES -  
+
+Listar Produtos
+entrada   |   resultado
+__________|___________________________________________
+   1      |   listar todos os produtos cadastrados
+
+- TESTES DE CONTROLADORES -
+
+Login de Administrador
+nomeDeUsuario    |   senha   |   resultado
+_________________|___________|_____________________
+abilio           |   luke    |   logado
+leandro          |  mlteamor |   logado
+douglas          |  senha12  |   logado
+123abilio        |   luke    |   usuario invalido
+" "              |   luke    |   usuario invalido
+" "              |    " "    |   usuario invalido  
+abilio           |   mike    |   senha incorreta
+abilio           |    " "    |   senha incorreta
+
+Cadastro de Produto
+nome           |  preco  |  quantidade  | lojaFornecedora |   resultado
+_______________|_________|______________|_________________|____________________________
+ Celular Ruim  |  5000   |       8      |   Chico Cell    |   cadastrado     
+     " "       |  5000   |       8      |   Chico Cell    |   nome invalido
+ Celular Ruim  |  " "    |       8      |   Chico Cell    |   preco invalido
+ Celular Ruim  | -5000   |       8      |   Chico Cell    |   preco invalido
+ Celular Ruim  |  a$%&   |       8      |   Chico Cell    |   preco invalido
+ Celular Ruim  |  5000   |      " "     |   Chico Cell    |   quantidade invalida
+ Celular Ruim  |  5000   |      -1      |   Chico Cell    |   quantidade invalida
+ Celular Ruim  |  5000   |       @      |   Chico Cell    |   quantidade invalida     
+ Celular Ruim  |  5000   |       8      |      " "        |   loja invalida
+
+
+Edição de Produto
+  id  | nome          |  preco  |  quantidade  | lojaFornecedora |   resultado
+______|_______________|_________|______________|_________________|____________________________
+ 1    | Iphone Ruim   |  5000   |       8      |   Chico Cell    |   atualizado     
+ 1    |     " "       |  5000   |       8      |   Chico Cell    |   nome invalido
+ 1    | Celular Ruim  |  " "    |       8      |   Chico Cell    |   preco invalido
+ 1    | Celular Ruim  | -5000   |       8      |   Chico Cell    |   preco invalido
+ 1    | Celular Ruim  |  a$%&   |       8      |   Chico Cell    |   preco invalido
+ 1    | Celular Ruim  |  5000   |      " "     |   Chico Cell    |   quantidade invalida
+ 1    | Celular Ruim  |  5000   |      -1      |   Chico Cell    |   quantidade invalida
+ 1    | Celular Ruim  |  5000   |       @      |   Chico Cell    |   quantidade invalida     
+ 1    | Celular Ruim  |  5000   |       8      |      " "        |   loja invalida
+ 88   | Celular Ruim  |  5000   |       8      |   Chico Cell    |   id invalido
+ -1   | Celular Ruim  |  5000   |       8      |   Chico Cell    |   id invalido 
+
+Exclusão de Produto
+  id  |   resultado
+______|____________________
+ 1    |  produto excluído        
+ 88   |    id invalido       
+ -1   |    id invalido
+
+
+PROC_BUSC 0.1
+LOGIN
+Usuário: _
+Senha: _
+
+PROC_BUSC 0.1
+PRODUTOS
+1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir
+_
+
+
+PROC_BUSC 0.1
+PRODUTOS
+1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir
+1
+  id  |     nome      |  preco  |  quantidade  | lojaFornecedora 
+______|_______________|_________|______________|_________________
+  1   | Celular Ruim  |  5000   |       8      |   Chico Cell    
+  2   | Celular Bom   |   350   |      88      |    Alcatel     
