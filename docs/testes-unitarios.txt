@@ -16,19 +16,39 @@ TESTES
 
 - TESTES DE INTERFACES -  
 
+Menu Inicial
+entrada   |   resultado
+__________|___________________________________________
+   1      |   Digite um termo de busca: _
+   2	    |   Apresentar opção de inserir Usuário e depois Senha	
+   3      |   Opção Inválida  
+
+Busca de Produtos
+entrada   |   resultado
+__________|___________________________________________
+  Ruim    |   Retornar todos os produtos que contenham o termo "Ruim"
+
+GERENCIAMENTO DE PRODUTOS
 Listar Produtos
 entrada   |   resultado
 __________|___________________________________________
    1      |   listar todos os produtos cadastrados
+      
+Cadastrar Produtos
+entrada   |   resultado
+__________|___________________________________________
+   2      |   Digite o nome do produto: _
+
+Editar Produtos
+entrada   |   resultado
+__________|___________________________________________
+   3      |   Digite o id: _
 
 Remover Produtos
 entrada   |   resultado
 __________|___________________________________________
    4      |   Digite o id do Produto que será removido: _
-      
 
-
- 
 - TESTES DE CONTROLADORES -
 
 Login de Administrador
@@ -81,6 +101,11 @@ ______|____________________
 
 
 PROC_BUSC 0.1
+1- Buscar | 2- Entrar
+1
+Digite um termo de busca: _
+
+PROC_BUSC 0.1
 LOGIN
 Usuário: _
 Senha: _
@@ -100,6 +125,24 @@ ______|_______________|_________|______________|_________________
   1   | Celular Ruim  |  5000   |       8      |   Chico Cell    
   2   | Celular Bom   |   350   |      88      |    Alcatel   
 
+PROC_BUSC 0.1
+PRODUTOS
+1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir
+2
+Digite o nome do produto: _
+Digite o preco do produto: _
+Digite a quantidade do produto: _
+Digite a loja fornecedora: _
+
+PROC_BUSC 0.1
+PRODUTOS
+1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir
+3
+Digite o id do produto: _
+Digite o novo nome: _
+Digite o novo preco: _ 
+Digite a nova quantidade: _  
+Digite a nova lojaFornecedora: _
 
 PROC_BUSC 0.1
 PRODUTOS
@@ -107,16 +150,3 @@ PRODUTOS
 4  
 Digite o id do Produto que será removido: 2   
 Produto Removido com Sucesso!
-
-
-
-
-
-
-
-
-
-
-
-
-
