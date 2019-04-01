@@ -9,7 +9,7 @@ class Menus {
 	
 	@Test
 	void menuInicial() {
-		assertEquals("1- Buscar | 2- Entrar", menu.mostrarInicial());
+		assertEquals("1- Buscar | 2- Entrar",menu.mostrarInicial());
 	}
 	
 	@Test
