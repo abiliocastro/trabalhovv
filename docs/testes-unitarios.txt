@@ -21,6 +21,13 @@ entrada   |   resultado
 __________|___________________________________________
    1      |   listar todos os produtos cadastrados
 
+Editar Produtos
+
+entrada   |   resultado
+__________|___________________________________________
+   3      |   Digite o id: _
+
+
 - TESTES DE CONTROLADORES -
 
 Login de Administrador
@@ -91,3 +98,14 @@ PRODUTOS
 ______|_______________|_________|______________|_________________
   1   | Celular Ruim  |  5000   |       8      |   Chico Cell    
   2   | Celular Bom   |   350   |      88      |    Alcatel     
+
+PROC_BUSC 0.1
+PRODUTOS
+1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir
+3
+Digite o id do produto: _
+Digite o novo nome: _
+Digite o novo preco: _ 
+Digite a nova quantidade: _  
+Digite a nova lojaFornecedora: _
+
