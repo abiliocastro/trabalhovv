@@ -1,7 +1,11 @@
 package fronteira;
 
-public class Menu {
-
+public class InterfaceMenuInicial {
+	
+	public void mostra() {
+		System.out.println("1- Buscar | 2- Entrar");
+	}
+	
 	public String selecionarOpcao(int entrada) {
 		switch(entrada) {
 		case 1:
@@ -21,8 +25,7 @@ public class Menu {
 		return "Digite um termo de busca: ";
 	}
 	
-	public String entrar() {
+	private String entrar() {
 		return "di";
-		
 	}
 }
