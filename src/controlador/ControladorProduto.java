@@ -1,25 +1,27 @@
 package controlador;
 
-import java.util.ArrayList;
-import entidade.Produto;
-import entidade.RepositorioProduto;
+import fronteira.RepositorioProduto;
 
 public class ControladorProduto {
-	static long id = 0;
 	RepositorioProduto repProdutos = new RepositorioProduto();
+	static long id = 0;
 	
-	void cadastrarProduto(String nome, float preco, int quantidade, String lojaFornecedora) {
-		Produto novoProduto = new Produto(this.id, nome, preco, quantidade, lojaFornecedora);
-		this.id++;
-	}
-	
-	/*void editarProduto(int id) {
-		for (Produto produtoEditavel : ) {
-			if(produtoEditavel.getId() == id) {
-				
+	public String cadastrarProduto(String nome, float preco, int quantidade, String lojaFornecedora) {
+		try {
+			if(nome.equals(null)) {
+				return "nome invalido!";
 			}
+			repProdutos.cadastrar(this.id, nome, preco, quantidade, lojaFornecedora);
+			return "Cadastrado com Sucesso";
+		}catch (Exception e) {
+			return e.getMessage();
 		}
-	}
-	*/
 		
+	}
+	public String removerProduto(int id) {
+		if(repProdutos.removerProduto(id)) { 
+			return "Produto Removido com Sucesso!";
+		}
+		return "Falha ao Remover Produto!";
+	}
 }

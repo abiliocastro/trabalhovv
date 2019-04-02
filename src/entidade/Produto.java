@@ -7,7 +7,7 @@ public class Produto {
 	private float preco;
 	private int quantidade;
 	private String lojaFornecedora;
-	
+
 	public Produto(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
 		this.id = id;
 		this.nome = nome;
@@ -54,5 +54,11 @@ public class Produto {
 
 	public void setLojaFornecedora(String lojaFornecedora) {
 		this.lojaFornecedora = lojaFornecedora;
+	}
+	
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+				+ ", lojaFornecedora=" + lojaFornecedora + "]";
 	}
 }
