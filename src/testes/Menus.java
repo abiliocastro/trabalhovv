@@ -15,13 +15,18 @@ class Menus {
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(baos);
 	PrintStream old = System.out;
+	String os = System.getProperty("os.name").toLowerCase();
 	
 	@Test
 	void menuInicial() {
 		this.mudarSaida();
 		menuInicial.mostra();
 		String mostrado = this.capturarSaida();
-		String esperado = "1- Buscar | 2- Entrar\r\n";
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "1- Buscar | 2- Entrar\n";
+		else
+			esperado  = "1- Buscar | 2- Entrar\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
@@ -39,7 +44,38 @@ class Menus {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(2);
 		String mostrado = this.capturarSaida();
-		assertTrue(Pattern.matches("LOGIN\r\nUsu�rio: Senha: ", mostrado));
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "LOGIN\nUsuário: Senha: ";
+		else
+			esperado = "LOGIN\r\nUsuário: Senha: ";
+		assertTrue(Pattern.matches(esperado, mostrado));
+	}
+	
+	@Test
+	void opcaoInvalida3() {
+		this.mudarSaida();
+		menuInicial.selecionarOpcao(3);
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Opção Inválida\n";
+		else
+			esperado = "Opção Inválida\r\n";
+		assertEquals(esperado, mostrado);
+	}
+	
+	@Test
+	void opcaoInvalidaNegativa() {
+		this.mudarSaida();
+		menuInicial.selecionarOpcao(-1);
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Opção Inválida\n";
+		else
+			esperado = "Opção Inválida\r\n";
+		assertEquals(esperado, mostrado);
 	}
 	
 	private void mudarSaida() {

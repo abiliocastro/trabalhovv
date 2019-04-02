@@ -11,7 +11,7 @@ public class InterfaceLogin {
 	
 	public void realizarLogin() {
 		System.out.println("LOGIN");
-		System.out.print("Usu·rio: ");
+		System.out.print("Usu√°rio: ");
 		this.entrada.nextLine();
 		System.out.print("Senha: ");
 		this.entrada.nextLine();

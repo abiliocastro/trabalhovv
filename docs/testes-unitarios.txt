@@ -16,11 +16,11 @@ TESTES
 
 - TESTES DE INTERFACES -  
 
-Menu Inicial
+Menu Inicial (Feito)
 entrada   |   resultado
 __________|___________________________________________
    1      |   Digite um termo de busca: _
-   2	    |   Apresentar opção de inserir Usuário e depois Senha	
+   2	  |   Apresentar opção de inserir Usuário e depois Senha	
    3      |   Opção Inválida  
 
 Busca de Produtos
