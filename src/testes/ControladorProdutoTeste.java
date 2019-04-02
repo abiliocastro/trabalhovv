@@ -15,13 +15,7 @@ class ControladorProdutoTeste {
 	}
 	
 	@Test
-	void removerProduto() {
-		cp.cadastrarProduto("Celular Ruim", 5000, 8, "Chico Cell");
-		assertEquals("Produto Removido com Sucesso!", cp.removerProduto(0));
+	void cadastrarProdutoNomeVazio() {
+		assertEquals("Cadastrado com Sucesso", cp.cadastrarProduto(" ", 5000, 8, "Chico Cell"));
 	}
-	
-	void removerProdutoSemNenhumCadastro() {
-		assertEquals("Falha ao Remover Produto!", cp.removerProduto(1));
-	}
-	
 }

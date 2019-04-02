@@ -6,9 +6,16 @@ public class ControladorProduto {
 	RepositorioProduto repProdutos = new RepositorioProduto();
 	static long id = 0;
 	
+	public boolean validarNome(String nome) {
+		if(nome.matches("")) {
+			return true;
+		}
+		return false;
+	}
+	
 	public String cadastrarProduto(String nome, float preco, int quantidade, String lojaFornecedora) {
 		try {
-			if(nome.equals(null)) {
+			if(nome.equals("") || nome.equals(null)) {
 				return "nome invalido!";
 			}
 			repProdutos.cadastrar(this.id, nome, preco, quantidade, lojaFornecedora);
