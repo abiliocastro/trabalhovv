@@ -5,9 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.regex.Pattern;
-
 import org.junit.jupiter.api.Test;
-
 import fronteira.InterfaceMenuInicial;
 
 class Menus {
@@ -17,6 +15,7 @@ class Menus {
 	PrintStream old = System.out;
 	String os = System.getProperty("os.name").toLowerCase();
 	
+	// TESTES DA INTERFACE MENU INICIAL
 	@Test
 	void menuInicial() {
 		this.mudarSaida();
@@ -46,9 +45,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "LOGIN\nUsuário: Senha: ";
+			esperado = "LOGIN\nUsuï¿½rio: Senha: ";
 		else
-			esperado = "LOGIN\r\nUsuário: Senha: ";
+			esperado = "LOGIN\r\nUsuï¿½rio: Senha: ";
 		assertTrue(Pattern.matches(esperado, mostrado));
 	}
 	
@@ -59,9 +58,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Opção Inválida\n";
+			esperado = "Opï¿½ï¿½o Invï¿½lida\n";
 		else
-			esperado = "Opção Inválida\r\n";
+			esperado = "Opï¿½ï¿½o Invï¿½lida\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
@@ -72,9 +71,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Opção Inválida";
+			esperado = "Opï¿½ï¿½o Invï¿½lida";
 		else
-			esperado = "Opção Inválida\r\n";
+			esperado = "Opï¿½ï¿½o Invï¿½lida\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	

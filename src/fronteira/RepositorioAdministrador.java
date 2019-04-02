@@ -1,15 +1,20 @@
 package fronteira;
 
 import java.util.ArrayList;
-
-
 import entidade.Administrador;
+
 public class RepositorioAdministrador {
 	
 	private ArrayList<Administrador> administradores;
 
-	public RepositorioAdministrador() {
+	private static RepositorioAdministrador repositorioAdministrador = new RepositorioAdministrador();
+	
+	private RepositorioAdministrador() {
 		administradores = new ArrayList<>();
+	}
+	
+	public static RepositorioAdministrador getInstance() {
+		return repositorioAdministrador;
 	}
 	
 	public ArrayList<Administrador> obterAdministradores() {

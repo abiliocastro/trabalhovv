@@ -15,12 +15,10 @@ public class InterfaceLogin {
 	
 	public void realizarLogin() {
 		System.out.println("LOGIN");
-		System.out.print("Usuário: ");
+		System.out.print("Usuï¿½rio: ");
 		String login = entrada.nextLine();
 		System.out.print("Senha: ");
 		String senha = entrada.nextLine();
 	}
 	
-	
-
 }
