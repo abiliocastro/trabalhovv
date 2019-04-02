@@ -67,7 +67,8 @@ Cadastro de Produto
 nome           |  preco  |  quantidade  | lojaFornecedora |   resultado
 _______________|_________|______________|_________________|____________________________
  Celular Ruim  |  5000   |       8      |   Chico Cell    |   cadastrado     
-     " "       |  5000   |       8      |   Chico Cell    |   nome invalido
+     " "       |  5000   |       8      |   Chico Cell    |   nome invalido             //caso digite um espaço
+     ""        |  5000   |       8      |   Chico Cell    |   nome invalido             //caso dê somente enter
  Celular Ruim  |  " "    |       8      |   Chico Cell    |   preco invalido
  Celular Ruim  | -5000   |       8      |   Chico Cell    |   preco invalido
  Celular Ruim  |  a$%&   |       8      |   Chico Cell    |   preco invalido
