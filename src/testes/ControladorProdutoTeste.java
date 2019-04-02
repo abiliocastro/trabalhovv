@@ -1,6 +1,7 @@
 package testes;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 
@@ -11,7 +12,16 @@ class ControladorProdutoTeste {
 	@Test
 	void cadastrarProduto() {
 		assertEquals("Cadastrado com Sucesso", cp.cadastrarProduto("Celular Ruim", 5000, 8, "Chico Cell"));
-		assertEquals("Cadastrado com Sucesso", cp.cadastrarProduto("Celular Ruim", 5000, 8, "Chico Cell"));
-		assertEquals("Cadastrado com Sucesso", cp.cadastrarProduto("Celular Ruim", 5000, 8, "Chico Cell"));
 	}
+	
+	@Test
+	void removerProduto() {
+		cp.cadastrarProduto("Celular Ruim", 5000, 8, "Chico Cell");
+		assertEquals("Produto Removido com Sucesso!", cp.removerProduto(0));
+	}
+	
+	void removerProdutoSemNenhumCadastro() {
+		assertEquals("Falha ao Remover Produto!", cp.removerProduto(1));
+	}
+	
 }

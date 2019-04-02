@@ -11,5 +11,10 @@ public class RepositorioProduto {
 		Produto novoProduto = new Produto(id, nome, preco, quantidade, lojaFornecedora);
 		produtos.add(novoProduto);
 	}
-	
+	public boolean removerProduto(int id) {
+		return produtos.remove(id)!=null;
+	}
+	public ArrayList<Produto> getProdutos(){
+		return this.produtos;
+	}
 }
