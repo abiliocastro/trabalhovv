@@ -16,7 +16,7 @@ public class InterfaceMenuInicial {
 				this.interfaceLogin.realizarLogin();
 				break;
 			default:
-				System.out.println("Op√ß√£o Inv√°lida");
+				System.out.println("OpÁ„o Inv·lida");
 		}
 	}
 	
