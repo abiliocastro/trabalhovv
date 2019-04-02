@@ -3,10 +3,12 @@ package entidade;
 public class Administrador {
 	private String nomeDeUsuario;
 	private String senha;
+	private boolean logado;
 	
 	public Administrador(String nomeDeUsuario, String senha) {
 		this.nomeDeUsuario = nomeDeUsuario;
 		this.senha = senha;
+		this.logado = false;
 	}
 
 	public String getNomeDeUsuario() {

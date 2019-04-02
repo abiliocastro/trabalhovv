@@ -48,7 +48,7 @@ class Menus {
 		if(os.equals("linux"))
 			esperado = "LOGIN\nUsuário: Senha: ";
 		else
-			esperado = "LOGIN\r\nUsuário: Senha: ";
+			esperado = "LOGIN\r\njo: Senha: ";
 		assertTrue(Pattern.matches(esperado, mostrado));
 	}
 	
