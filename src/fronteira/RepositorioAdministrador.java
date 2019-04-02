@@ -2,36 +2,35 @@ package fronteira;
 
 import java.util.ArrayList;
 
-import entidade.Administrador;
 
+import entidade.Administrador;
 public class RepositorioAdministrador {
-	private ArrayList<Administrador> listaDeAdmin;
 	
+	private ArrayList<Administrador> administradores;
+
 	public RepositorioAdministrador() {
-		listaDeAdmin = new ArrayList<Administrador>();
+		administradores = new ArrayList<>();
 	}
-	public boolean adicionarAdminstrador(String login,String senha) {
-		Administrador admin = new Administrador(login, senha);
-		if(listaDeAdmin.add(admin)) {
-			return true;
-		}
-		return false;
-		
+	
+	public ArrayList<Administrador> obterAdministradores() {
+		return administradores;
 	}
-	public Administrador buscarAdmin(String login) {
-		for (Administrador administrador : listaDeAdmin) {
-			if(administrador.getNomeDeUsuario().equals(login)) {
+	
+	public void cadastrarAdministrador(String nomeDeUsuario, String senha) {
+		Administrador novoAdministrador = new Administrador(nomeDeUsuario, senha);
+		this.administradores.add(novoAdministrador);
+	}
+	
+	public Administrador obterAdmnistrador(String nomeDeUsuario) {
+		for (Administrador administrador : this.administradores) {
+			if(administrador.getNomeDeUsuario().equals(nomeDeUsuario)) {
 				return administrador;
 			}
 		}
 		return null;
 	}
-	public ArrayList<Administrador> getListaDeAdmin() {
-		return listaDeAdmin;
-	}
-	public void setListaDeAdmin(ArrayList<Administrador> listaDeAdmin) {
-		this.listaDeAdmin = listaDeAdmin;
-	}
+
+	
 	
 	
 	
