@@ -3,7 +3,7 @@ package controlador;
 import fronteira.RepositorioProduto;
 
 public class ControladorProduto {
-	RepositorioProduto repProdutos = new RepositorioProduto();
+	RepositorioProduto repProdutos = RepositorioProduto.getInstance();
 	static long id = 0;
 	
 	public boolean validarNome(String nome) {
