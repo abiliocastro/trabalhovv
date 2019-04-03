@@ -12,11 +12,9 @@ public class Main {
 		Scanner entrada = new Scanner(System.in);
 		InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
 		inicializarSistema();
-		InterfaceBusca ib = new InterfaceBusca();
 		
-		
-		
-		ib.mostra();
+//		InterfaceBusca ib = new InterfaceBusca();
+//		ib.mostra();
 		
 		boolean sair = true;
 		while(!sair) {

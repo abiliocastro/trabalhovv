@@ -4,10 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceMenuInicial;
-import fronteira.Main;
 
 class Menus {
 	InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
@@ -40,20 +38,6 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoEntrar() throws Exception {
-		Main.inicializarSistema();
-		this.mudarSaida();
-		menuInicial.selecionarOpcao(2);
-		String mostrado = this.capturarSaida();
-		String esperado;
-		if(os.equals("linux"))
-			esperado = "LOGIN\nUsuario: Senha: ";
-		else
-			esperado = "LOGIN\r\nUsuario: Senha: ";
-		assertTrue(Pattern.matches(esperado, mostrado));
-	}
-	
-	@Test
 	void opcaoInvalida3() throws Exception {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(3);
@@ -78,6 +62,8 @@ class Menus {
 			esperado = "Opcao Invalida\r\n";
 		assertEquals(esperado, mostrado);
 	}
+	
+	// TESTES DA INTERFACE MENU PRODUTO
 	
 	private void mudarSaida() {
 		System.setOut(ps);

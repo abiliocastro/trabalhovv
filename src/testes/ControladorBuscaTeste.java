@@ -31,8 +31,7 @@ class ControladorBuscaTeste {
 
 	@Test
 	void buscarProdutoNulo() { 			
-		String atual = null;
-		produtosBuscado = contBusc.buscarProduto(atual);
+		produtosBuscado = contBusc.buscarProduto(null);
 		assertTrue(produtosBuscado.isEmpty());
 	}
 }

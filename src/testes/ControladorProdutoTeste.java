@@ -2,7 +2,6 @@ package testes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
@@ -84,14 +83,74 @@ class ControladorProdutoTeste {
 		Main.inicializarSistema();
 		assertEquals(true, cp.editarProduto(2, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell"));
 	}
-	
+
 	@Test
-	void idInvalido() {
-		fail("Ainda nao implementado");
+	void idInexistente() {
+		assertThrows(IdInexistenteException.class, () -> {
+			cp.editarProduto(88, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
+		});
+		assertThrows(IdInexistenteException.class, () -> {
+			cp.editarProduto(-1, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
+		});
+	}
+
+	//Testando edicao campo NOME
+	@Test
+	void editarProdutoNomeInvalidoNulo() {
+		assertThrows(NomeInvalidoException.class, () -> {
+			cp.editarProduto(2, null, 8000f, 2, "ChicoCell");
+		}); 
 	}
 	
 	@Test
-	void idInexistente() {
-		fail("Ainda nao implementado");
+	void editarProdutoNomeInvalidoEspaco() {
+		assertThrows(NomeInvalidoException.class, () -> {
+			cp.editarProduto(2, " ", 8000f, 2, "ChicoCell");
+		}); 
+	}
+	
+	@Test
+	void editarProdutoNomeInvalidoVazio() {
+		assertThrows(NomeInvalidoException.class, () -> {
+			cp.editarProduto(2, "", 8000f, 2, "ChicoCell");
+		}); 
+	}
+	
+	//Testando edicao campo PRECO
+	@Test
+	void editarProdutoPrecoInvalidoNegativo() {
+		assertThrows(PrecoInvalidoException.class, () -> {
+			cp.editarProduto(3, "Celular Ruim",-5000,8,"Chico Cell");
+		});
+	}
+	
+	//Testando edicao campo QUANTIDADE
+	@Test
+	void editarProdutoQuantidadeInvalidaNegativa() {
+		assertThrows(QuantidadeInvalidaException.class, () -> {
+			cp.cadastrarProduto("Celular Ruim",5000,-8,"Chico Cell");
+		});
+	}
+	
+	//Testando edicao campo NOME EMPRESA
+	@Test
+	void editarProdutoNomeEmpresaInvalidoNulo() {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
+			cp.editarProduto(3, "Celular Ruim",5000,8,null);
+		}); 
+	}
+	
+	@Test
+	void editarProdutoNomeEmpresaInvalidoEspaco() {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
+			cp.editarProduto(3,"Celular Ruim",5000,8," ");
+		}); 
+	}
+	
+	@Test
+	void editarProdutoNomeEmpresaInvalidoVazio() {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
+			cp.editarProduto(3,"Celular Ruim",5000,8,"");
+		}); 
 	}
 }

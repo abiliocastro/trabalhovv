@@ -1,12 +1,9 @@
 package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import org.junit.jupiter.api.Test;
-
 import fronteira.InterfaceBusca;
 import fronteira.Main;
 
@@ -16,8 +13,6 @@ class InterfaceBuscaTeste {
 	PrintStream ps = new PrintStream(baos);
 	PrintStream old = System.out;
 	String os = System.getProperty("os.name").toLowerCase();
-	
-	
 	
 	@Test
 	void interfaceBusca() {
@@ -34,8 +29,6 @@ class InterfaceBuscaTeste {
 	@Test
 	void realizarBuscaProdutoNaoEncontrado() {
 		Main.inicializarSistema();
-		String termoBuscar = "ddd";
-		
 		this.mudarSaida();
 		menuBusca.mostra();
 		String mostrado = this.capturarSaida();
@@ -47,21 +40,7 @@ class InterfaceBuscaTeste {
 				esperado  = "Nao tem cadastrado com esse nome\r\n";	
 		}	
 		assertEquals(esperado, mostrado);
-	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	private void mudarSaida() {
 		System.setOut(ps);

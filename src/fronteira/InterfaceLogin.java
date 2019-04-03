@@ -15,7 +15,7 @@ public class InterfaceLogin {
 //		menuProduto = new MenuProduto();
 	}
 	
-	public void realizarLogin() throws Exception {
+	public boolean realizarLogin() throws Exception {
 		boolean usuarioInvalido;
 		String nomeDeUsuario;
 		System.out.println("LOGIN");
@@ -32,9 +32,7 @@ public class InterfaceLogin {
 		} while(usuarioInvalido);
 		System.out.print("Senha: ");
 		String senha = entrada.nextLine();
-//		if(controladorLogin.realizarLogin(nomeDeUsuario, senha)) {
-//			menuProduto.selecionarOpcao();
-//		}
+		return controladorLogin.realizarLogin(nomeDeUsuario, senha);
 	}
 	
 }
