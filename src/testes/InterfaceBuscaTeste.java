@@ -15,7 +15,7 @@ class InterfaceBuscaTeste {
 	String os = System.getProperty("os.name").toLowerCase();
 	
 	@Test
-	void interfaceBusca() {
+	void interfaceBuscaSaidaDeDados() {
 		this.mudarSaida();
 		menuBusca.mostra();
 		String mostrado = this.capturarSaida();
@@ -27,7 +27,7 @@ class InterfaceBuscaTeste {
 		assertEquals(esperado, mostrado);
 	}
 	@Test
-	void realizarBuscaProdutoNaoEncontrado() {
+	void interfaceBuscaEntradaDeDados() {
 		Main.inicializarSistema();
 		this.mudarSaida();
 		menuBusca.mostra();
@@ -52,5 +52,6 @@ class InterfaceBuscaTeste {
 		System.setOut(old);
 		return capturado;
 	}
+	
 
 }
