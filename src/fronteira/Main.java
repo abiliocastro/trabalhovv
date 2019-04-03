@@ -2,9 +2,11 @@ package fronteira;
 
 import java.util.Scanner;
 
+import controlador.ControladorProduto;
+
 public class Main {
 	static RepositorioAdministrador repoAdmins;
-	static RepositorioProduto repoProdutos;
+	static ControladorProduto controladorProduto = new ControladorProduto();
 	
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
@@ -44,14 +46,16 @@ public class Main {
 		
 	}
 	public static void inicializarProdutos() {
-		repoProdutos = RepositorioProduto.getInstance();
-		repoProdutos.cadastrar(1,"Iphone Ruim", 5000f, 8, "Chico Cell");
-		repoProdutos.cadastrar(4,"Iphone Ruim", 5000f, 8, "Chico Cell");
-		repoProdutos.cadastrar(2,"Celular Ruim", 5000f, 8, "Chico Cell");	
+		try {
+			controladorProduto.cadastrarProduto("Iphone Ruim", 5000f, 8, "Chico Cell");
+			controladorProduto.cadastrarProduto("Iphone Ruim 2", 5000f, 8, "Chico Cell");
+			controladorProduto.cadastrarProduto("Celular Ruim", 5000f, 8, "Chico Cell");
+			controladorProduto.cadastrarProduto("Televisao", 340.99f, 1, "Jose Moveis");
+			controladorProduto.cadastrarProduto("Televisao 2", 340.99f, 1, "Outro");
+			controladorProduto.cadastrarProduto("Banana", 1.5f, 880, "Toim das Frutas");
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		
-
-		repoProdutos.cadastrar(1,"Televisao", 340.99f, 1, "Jose Moveis");
-		repoProdutos.cadastrar(1,"Televisao", 340.99f, 1, "Outro");
-		repoProdutos.cadastrar(3,"Banana", 349.0f, 4, "Outro");
 	}
 }
