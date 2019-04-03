@@ -14,32 +14,34 @@ public class MenuProduto {
 	}
 		
 	public void SelecionarOpcao() {
-		System.out.println("1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:");
-		
-		try {
-			int entrada = Integer.parseInt(sc.nextLine());
-		
-			switch (entrada) {
-			case 0:
-				System.out.println("Ádios joputa");
-				break;
-			case 1:
-				break;
-			case 2:		
-				this.OpcaoCadastro();
-				break;
-			case 3:
-				break;
-			case 4:
-				break;
-			
-			default:
-				System.out.println("Opção invalida!");
+		boolean continuar = true;
+		while(continuar) {
+			System.out.println("1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:");
+			try {
+				int entrada = Integer.parseInt(sc.nextLine());
+				
+				switch (entrada) {
+				case 0:
+					continuar = false;
+					break;
+				case 1:
+					break;
+				case 2:		
+					this.OpcaoCadastro();
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				default:
+					System.out.println("Opção invalida!");
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("formato da entrada invalida");
+				SelecionarOpcao();
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("formato da entrada invalida");
-			SelecionarOpcao();
 		}
+		
 	}
 	
 	public void OpcaoCadastro() {
@@ -58,7 +60,8 @@ public class MenuProduto {
 			System.out.println("formato da entrada invalida");
 			OpcaoCadastro();
 		}catch (Exception e) {
-			System.out.println("Um erro foi encontrado: "+e.getMessage());
+			System.out.println(e.getMessage());
+			OpcaoCadastro();
 		}finally {
 		}
 	}

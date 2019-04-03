@@ -1,5 +1,6 @@
 package controlador;
 
+import excecoes.*;
 import fronteira.RepositorioProduto;
 
 public class ControladorProduto {
@@ -7,7 +8,7 @@ public class ControladorProduto {
 	static long id = 0;
 	
 	public boolean validarNome(String nome) {
-		if(nome.equals(null) || nome.equals("") || nome.equals(" ")) {
+		if(nome == null || nome.equals("") || nome.equals(" ")) {
 			return false;
 		}
 		return true;
@@ -28,7 +29,7 @@ public class ControladorProduto {
 	}
 	
 	public boolean validarLojaFornecedor(String lojaFornecedora) {
-		if(lojaFornecedora.equals(null) || lojaFornecedora.equals("") || lojaFornecedora.equals(" ")) {
+		if(lojaFornecedora == null || lojaFornecedora.equals("") || lojaFornecedora.equals(" ")) {
 			return false;
 		}
 		return true;
@@ -36,16 +37,16 @@ public class ControladorProduto {
 	
 	public boolean cadastrarProduto(String nome, float preco, int quantidade, String lojaFornecedora) throws Exception{
 		if(!validarNome(nome)) {
-			throw new Exception("Nome invalido");
+			throw new NomeInvalidoException();
 		}
 		if(!validarPreco(preco)) {
-			throw new Exception("Preco invalido");
+			throw new PrecoInvalidoExceptio();
 		}
 		if(!validarQuantidade(quantidade)) {
-			throw new Exception("Quantidade invalido");
+			throw new QuantidadeInvalidaException();
 		}
 		if(!validarLojaFornecedor(lojaFornecedora)) {
-			throw new Exception("Loja invalido");
+			throw new lojaFornecedoraInvalidaException();
 		}
 		
 		repProdutos.cadastrar(this.id, nome, preco, quantidade, lojaFornecedora);

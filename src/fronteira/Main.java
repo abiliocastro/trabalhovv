@@ -9,6 +9,12 @@ public class Main {
 	
 	public static void inicializarSistema() {
 		inicializarUsuarios();
+		menuProduto();
+	}
+	
+	public static void menuProduto() {
+		MenuProduto mp = new MenuProduto();
+		mp.SelecionarOpcao();
 	}
 	
 	public static void inicializarUsuarios() {
