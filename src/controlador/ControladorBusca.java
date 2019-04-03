@@ -8,17 +8,18 @@ import entidade.Produto;
 import fronteira.RepositorioProduto;
 
 public class ControladorBusca {
-		static RepositorioProduto repositorioDeProduto;
+		RepositorioProduto repositorioDeProduto;
 		ArrayList<Produto> produtosBuscados;
-		private static Pattern buscarP;
+		private Pattern buscarP;
 		
 		public ControladorBusca() {
 			repositorioDeProduto = RepositorioProduto.getInstance();
-			produtosBuscados = new ArrayList<Produto>();
 		} 
 	
 		public ArrayList<Produto> buscarProduto(String produtoBuscado) {
 			try {
+				produtosBuscados = new ArrayList<Produto>();
+				System.out.println(produtoBuscado);
 				buscarP = Pattern.compile(produtoBuscado);
 				if(repositorioDeProduto.getProdutos().size()>0) {
 					for (Produto produto : repositorioDeProduto.getProdutos()) {
@@ -28,7 +29,9 @@ public class ControladorBusca {
 						}
 					}
 				}	
-			}catch (Exception e) {}
+			}catch (Exception e) {
+				e.printStackTrace(System.out);
+			}
 			return produtosBuscados;
 		}
 }

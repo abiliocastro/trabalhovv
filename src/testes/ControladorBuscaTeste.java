@@ -13,7 +13,7 @@ import fronteira.RepositorioProduto;
 
 class ControladorBuscaTeste {
 	ArrayList<Produto> produtosBuscado;
-	static RepositorioProduto repositorioDeProduto = RepositorioProduto.getInstance();
+	RepositorioProduto repositorioDeProduto = RepositorioProduto.getInstance();
 	ControladorBusca contBusc = new ControladorBusca();
 	
 	@Test
@@ -23,7 +23,7 @@ class ControladorBuscaTeste {
 		if(!produtosBuscado.isEmpty()) {
 			for (Produto produto : produtosBuscado) {
 				System.out.println(produto.getNome());
-				assertTrue(produto.getNome().equals("xxx"));
+				assertTrue(produto.getNome().equals("Iphone Ruim"));
 			}
 		} else {
 			System.out.println("Array Vazio");
@@ -33,9 +33,6 @@ class ControladorBuscaTeste {
 
 	@Test
 	void buscarProdutoNulo() {
-		ArrayList<Produto> produtosBuscado = new ArrayList<Produto>(); 
-		Produto P = null;				
-		repositorioDeProduto.getProdutos().add(P);
 		String atual = null;
 		produtosBuscado = contBusc.buscarProduto(atual);
 		for (Produto produto : produtosBuscado) {
