@@ -2,6 +2,7 @@ package fronteira;
 
 import java.util.Scanner;
 import controlador.ControladorProduto;
+import entidade.Produto;
 
 public class MenuProduto {
 	private Scanner sc;
@@ -24,6 +25,7 @@ public class MenuProduto {
 					continuar = false;
 					break;
 				case 1:
+					this.OpcaoListar();
 					break;
 				case 2:		
 					this.opcaoCadastro();
@@ -62,6 +64,18 @@ public class MenuProduto {
 			System.out.println(e.getMessage());
 			opcaoCadastro();
 		}finally {
+		}
+	}
+	
+	public void OpcaoListar() {
+		System.out.println("Digite o ID do produto: ");
+		int id = Integer.parseInt(sc.nextLine());
+		
+	}
+	
+	public void OpcaoExcluir() {
+		for (Produto p: cp.listarProdutos()) {
+			System.out.println(p.toString());
 		}
 	}
 	

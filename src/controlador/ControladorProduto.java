@@ -1,5 +1,8 @@
 package controlador;
 
+import java.util.ArrayList;
+
+import entidade.Produto;
 import excecoes.IdInexistenteException;
 import excecoes.LojaFornecedoraInvalidaException;
 import excecoes.NomeInvalidoException;
@@ -58,6 +61,17 @@ public class ControladorProduto {
 		return true;
 	}
 	
+	public boolean removerProduto(int id) {
+		if(repProdutos.existeProduto(id)) {
+			repProdutos.removerProduto(id);
+		}
+		return false;
+	}
+	
+	public ArrayList<Produto> listarProdutos(){
+		return repProdutos.getProdutos();
+	}
+
 	public boolean editarProduto(long id, String nome, float preco, int quantidade, String lojaFornecedora) throws Exception {
 		if(!validarNome(nome)) {
 			throw new NomeInvalidoException();

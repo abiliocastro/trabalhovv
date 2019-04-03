@@ -41,6 +41,15 @@ public class RepositorioProduto {
 		return produtos.remove(id)!=null;
 	}
 	
+	public boolean existeProduto(int id) {
+		for (Produto produto : produtos) {
+			if(produto.getId() == id) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public ArrayList<Produto> getProdutos(){
 		return this.produtos;
 	}
