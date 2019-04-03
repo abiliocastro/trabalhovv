@@ -51,7 +51,7 @@ __________|___________________________________________
 
 - TESTES DE CONTROLADORES -
 
-Login de Administrador
+Login de Administrador (Feito)
 nomeDeUsuario    |   senha   |   resultado
 _________________|___________|_____________________
 abilio           |   luke    |   logado

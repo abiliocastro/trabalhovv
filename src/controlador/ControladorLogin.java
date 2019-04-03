@@ -30,4 +30,8 @@ public class ControladorLogin {
 		 
 	}
 	
+	public boolean validaUsuario(String nomeDeUsuario) {
+		return Pattern.matches("^[a-zA-Z$][a-zA-Z_$0-9]*$", nomeDeUsuario);
+	}
+	
 }	
