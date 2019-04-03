@@ -9,37 +9,30 @@ import org.junit.jupiter.api.Test;
 import controlador.ControladorBusca;
 import entidade.Produto;
 import fronteira.Main;
-import fronteira.RepositorioProduto;
 
 class ControladorBuscaTeste {
-	ArrayList<Produto> produtosBuscado;
-	static RepositorioProduto repositorioDeProduto = RepositorioProduto.getInstance();
 	ControladorBusca contBusc = new ControladorBusca();
+	ArrayList<Produto> produtosBuscado;
 	
 	@Test
 	void buscarProduto() {
 		Main.inicializarSistema();
-		produtosBuscado = contBusc.buscarProduto("Iphone");
+		String termoBuscar = "ruim";
+		produtosBuscado = contBusc.buscarProduto(termoBuscar);
+		System.out.println(produtosBuscado.size());
 		if(!produtosBuscado.isEmpty()) {
 			for (Produto produto : produtosBuscado) {
-				System.out.println(produto.getNome());
-				assertTrue(produto.getNome().equals("xxx"));
+				assertTrue(produto.getNome().toLowerCase().contains(termoBuscar.toLowerCase()));
 			}
 		} else {
-			System.out.println("Array Vazio");
+			assertEquals(0, produtosBuscado.size());
 		}
-		
 	}
 
 	@Test
-	void buscarProdutoNulo() {
-		ArrayList<Produto> produtosBuscado = new ArrayList<Produto>(); 
-		Produto P = null;				
-		repositorioDeProduto.getProdutos().add(P);
+	void buscarProdutoNulo() { 			
 		String atual = null;
 		produtosBuscado = contBusc.buscarProduto(atual);
-		for (Produto produto : produtosBuscado) {
-			assertNotNull(produto);
-		}
+		assertTrue(produtosBuscado.isEmpty());
 	}
 }
