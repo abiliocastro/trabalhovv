@@ -2,9 +2,9 @@ package fronteira;
 
 public class Main {
 	static RepositorioAdministrador repoAdmins;
-	
 	public static void main(String[] args) {
 		inicializarSistema();
+		
 	}
 	
 	public static void inicializarSistema() {
@@ -17,5 +17,5 @@ public class Main {
 		repoAdmins.cadastrarAdministrador("leandro", "mlteamor");
 		repoAdmins.cadastrarAdministrador("douglas", "senha12");
 	}
-
+	
 }

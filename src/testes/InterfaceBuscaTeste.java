@@ -28,7 +28,7 @@ class InterfaceBuscaTeste {
 			esperado  = "Digite um termo de busca:\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	
+
 	
 	
 	
