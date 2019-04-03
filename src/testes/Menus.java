@@ -45,9 +45,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "LOGIN\nUsu�rio: Senha: ";
+			esperado = "LOGIN\nUsuario: Senha: ";
 		else
-			esperado = "LOGIN\r\nUsu�rio: Senha: ";
+			esperado = "LOGIN\r\nUsuario: Senha: ";
 		assertTrue(Pattern.matches(esperado, mostrado));
 	}
 	
@@ -58,9 +58,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Op��o Inv�lida\n";
+			esperado = "Opcao Invalida\n";
 		else
-			esperado = "Op��o Inv�lida\r\n";
+			esperado = "Opcao Invalida\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
@@ -71,9 +71,9 @@ class Menus {
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Op��o Inv�lida";
+			esperado = "Opcao Invalida\n";
 		else
-			esperado = "Op��o Inv�lida\r\n";
+			esperado = "Opcao Invalida\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
