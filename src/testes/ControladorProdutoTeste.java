@@ -2,14 +2,17 @@ package testes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 import excecoes.*;
+import fronteira.Main;
 
 class ControladorProdutoTeste {
 	private ControladorProduto cp = new ControladorProduto();
 	
+	//TESTES DE CADASTRO DE PRODUTO
 	@Test
 	void cadastrarProduto() throws Exception {
 		assertEquals(true, cp.cadastrarProduto("Celular Ruim",5000,8,"Chico Cell"));
@@ -22,12 +25,14 @@ class ControladorProdutoTeste {
 			cp.cadastrarProduto(null,5000,8,"Chico Cell");
 		}); 
 	}
+	
 	@Test
 	void cadastrarProdutoNomeInvalidoEspaco() {
 		assertThrows(NomeInvalidoException.class, () -> {
 			cp.cadastrarProduto(" ",5000,8,"Chico Cell");
 		}); 
 	}
+	
 	@Test
 	void cadastrarProdutoNomeInvalidoVazio() {
 		assertThrows(NomeInvalidoException.class, () -> {
@@ -38,7 +43,7 @@ class ControladorProdutoTeste {
 	//Testando campo PRECO
 	@Test
 	void cadastrarProdutoPrecoInvalidoNegativo() {
-		assertThrows(PrecoInvalidoExceptio.class, () -> {
+		assertThrows(PrecoInvalidoException.class, () -> {
 			cp.cadastrarProduto("Celular Ruim",-5000,8,"Chico Cell");
 		});
 	}
@@ -54,20 +59,39 @@ class ControladorProdutoTeste {
 	//Testando campo NOME EMPRESA
 	@Test
 	void cadastrarProdutoNomeEmpresaInvalidoNulo() {
-		assertThrows(lojaFornecedoraInvalidaException.class, () -> {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
 			cp.cadastrarProduto("Celular Ruim",5000,8,null);
 		}); 
 	}
+	
 	@Test
 	void cadastrarProdutoNomeEmpresaInvalidoEspaco() {
-		assertThrows(lojaFornecedoraInvalidaException.class, () -> {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
 			cp.cadastrarProduto("Celular Ruim",5000,8," ");
 		}); 
 	}
+	
 	@Test
 	void cadastrarProdutoNomeEmpresaInvalidoVazio() {
-		assertThrows(lojaFornecedoraInvalidaException.class, () -> {
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
 			cp.cadastrarProduto("Celular Ruim",5000,8,"");
 		}); 
+	}
+	
+	//TESTES DE EDIÇÃO DE PRODUTO
+	@Test
+	void editarProduto() throws Exception {
+		Main.inicializarSistema();
+		assertEquals(true, cp.editarProduto(2, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell"));
+	}
+	
+	@Test
+	void idInvalido() {
+		fail("Ainda nao implementado");
+	}
+	
+	@Test
+	void idInexistente() {
+		fail("Ainda nao implementado");
 	}
 }

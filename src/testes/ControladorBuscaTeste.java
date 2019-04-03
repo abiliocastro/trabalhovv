@@ -20,7 +20,6 @@ class ControladorBuscaTeste {
 		Main.inicializarSistema();
 		String termoBuscar = "ruim";
 		produtosBuscado = contBusc.buscarProduto(termoBuscar);
-		System.out.println(produtosBuscado.size());
 		if(!produtosBuscado.isEmpty()) {
 			for (Produto produto : produtosBuscado) {
 				assertTrue(produto.getNome().toLowerCase().contains(termoBuscar.toLowerCase()));
