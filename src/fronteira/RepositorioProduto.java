@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import entidade.Produto;
 
 public class RepositorioProduto {
-	ArrayList<Produto> produtos = new ArrayList<Produto>();
+	private ArrayList<Produto> produtos; 
 	 
 	private static RepositorioProduto uniqueInstance = new RepositorioProduto();
 	
 	private RepositorioProduto() {
+		produtos = new ArrayList<Produto>();
 	}
 	
 	public static RepositorioProduto getInstance() {

@@ -107,4 +107,12 @@ public class Produto implements Comparable<Produto>{
 	public int compareTo(Produto outroProduto) {
 		return this.nome.compareTo(outroProduto.getNome().toLowerCase());
 	}
+	
+	public boolean match(String padrao) {
+		boolean nomeMatch = this.nome.toLowerCase().contains(padrao.toLowerCase());
+		if(nomeMatch) {
+			return true;
+		} 
+		return false;
+	}
 }
