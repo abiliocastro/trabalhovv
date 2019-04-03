@@ -14,7 +14,11 @@ public class Main {
 			System.out.println("PROC_BUSC 0.1");
 			menuInicial.mostra();
 			int opcao = entrada.nextInt();
-			menuInicial.selecionarOpcao(opcao);
+			try {
+				menuInicial.selecionarOpcao(opcao);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		
 		entrada.close();	
@@ -22,12 +26,6 @@ public class Main {
 	
 	public static void inicializarSistema() {
 		inicializarUsuarios();
-		menuProduto();
-	}
-	
-	public static void menuProduto() {
-		MenuProduto mp = new MenuProduto();
-		mp.SelecionarOpcao();
 	}
 	
 	public static void inicializarUsuarios() {

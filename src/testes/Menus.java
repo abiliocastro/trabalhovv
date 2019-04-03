@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceMenuInicial;
+import fronteira.Main;
 
 class Menus {
 	InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
@@ -30,7 +31,7 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoBusca() {
+	void opcaoBusca() throws Exception {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(1);
 		String mostrado = this.capturarSaida();
@@ -39,7 +40,8 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoEntrar() {
+	void opcaoEntrar() throws Exception {
+		Main.inicializarSistema();
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(2);
 		String mostrado = this.capturarSaida();
@@ -52,7 +54,7 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoInvalida3() {
+	void opcaoInvalida3() throws Exception {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(3);
 		String mostrado = this.capturarSaida();
@@ -65,7 +67,7 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoInvalidaNegativa() {
+	void opcaoInvalidaNegativa() throws Exception {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(-1);
 		String mostrado = this.capturarSaida();
