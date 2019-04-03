@@ -20,9 +20,20 @@ public class RepositorioProduto {
 		Produto novoProduto = new Produto(id, nome, preco, quantidade, lojaFornecedora);
 		produtos.add(novoProduto);
 	}
+	
 	public boolean removerProduto(int id) {
 		return produtos.remove(id)!=null;
 	}
+	
+	public boolean existeProduto(int id) {
+		for (Produto produto : produtos) {
+			if(produto.getId() == id) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public ArrayList<Produto> getProdutos(){
 		return this.produtos;
 	}

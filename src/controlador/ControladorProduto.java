@@ -1,6 +1,12 @@
 package controlador;
 
-import excecoes.*;
+import java.util.ArrayList;
+
+import entidade.Produto;
+import excecoes.NomeInvalidoException;
+import excecoes.PrecoInvalidoExceptio;
+import excecoes.QuantidadeInvalidaException;
+import excecoes.lojaFornecedoraInvalidaException;
 import fronteira.RepositorioProduto;
 
 public class ControladorProduto {
@@ -52,5 +58,16 @@ public class ControladorProduto {
 		repProdutos.cadastrar(this.id, nome, preco, quantidade, lojaFornecedora);
 		id++;
 		return true;
+	}
+	
+	public boolean removerProduto(int id) {
+		if(repProdutos.existeProduto(id)) {
+			repProdutos.removerProduto(id);
+		}
+		return false;
+	}
+	
+	public ArrayList<Produto> listarProdutos(){
+		return repProdutos.getProdutos();
 	}
 }

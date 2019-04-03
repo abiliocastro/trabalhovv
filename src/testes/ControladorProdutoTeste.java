@@ -70,4 +70,14 @@ class ControladorProdutoTeste {
 			cp.cadastrarProduto("Celular Ruim",5000,8,"");
 		}); 
 	}
+	
+	//Testando campo LISTAR
+	@Test
+	void listarProduto() {
+		cp = new ControladorProduto();
+		assertThrows(lojaFornecedoraInvalidaException.class, () -> {
+			cp.cadastrarProduto("Celular Ruim",5000,8,"");
+		}); 
+	}
+	
 }
