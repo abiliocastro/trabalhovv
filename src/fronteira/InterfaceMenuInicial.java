@@ -16,7 +16,7 @@ public class InterfaceMenuInicial {
 				this.interfaceLogin.realizarLogin();
 				break;
 			default:
-				System.out.println("Opção Inválida");
+				System.out.println("Opcao Invalida");
 		}
 	}
 	

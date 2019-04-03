@@ -62,6 +62,7 @@ douglas          |  senha12  |   logado
 " "              |    " "    |   usuario invalido  
 abilio           |   mike    |   senha incorreta
 abilio           |    " "    |   senha incorreta
+chico            |  isso     |   usuario inexistente
 
 Cadastro de Produto
 nome           |  preco  |  quantidade  | lojaFornecedora |   resultado
