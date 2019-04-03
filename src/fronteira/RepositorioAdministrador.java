@@ -21,9 +21,12 @@ public class RepositorioAdministrador {
 		return administradores;
 	}
 	
-	public void cadastrarAdministrador(String nomeDeUsuario, String senha) {
+	public boolean cadastrarAdministrador(String nomeDeUsuario, String senha) {
 		Administrador novoAdministrador = new Administrador(nomeDeUsuario, senha);
-		this.administradores.add(novoAdministrador);
+		if(administradores.add(novoAdministrador)) {
+			return true;
+		}
+		return false;
 	}
 	
 	public Administrador obterAdmnistrador(String nomeDeUsuario) {

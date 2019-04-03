@@ -32,14 +32,5 @@ public class InterfaceBusca {
 		}else{
 			System.out.println("Nao tem cadastrado com esse nome");
 		}
-	}
-
-	public ControladorBusca getControladorBusca() {
-		return controladorBusca;
-	}
-
-	public void setControladorBusca(ControladorBusca controladorBusca) {
-		this.controladorBusca = controladorBusca;
-	}
-	
+	}	
 }
