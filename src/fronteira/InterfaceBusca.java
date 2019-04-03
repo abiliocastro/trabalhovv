@@ -1,6 +1,7 @@
 package fronteira;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import controlador.ControladorBusca;
@@ -14,7 +15,7 @@ public class InterfaceBusca {
 	public InterfaceBusca() {
 		controladorBusca = new ControladorBusca();
 		entrada = new Scanner(System.in);
-	}
+	} 
 	
 	public void mostra() {
 		System.out.println("Digite um termo de busca:");
@@ -23,11 +24,13 @@ public class InterfaceBusca {
 		viewProdutos = controladorBusca.buscarProduto(produtoBuscado);
 		if(viewProdutos.size()>0) {
 			System.out.println("Produtos encontrados: ");
+			
+			Collections.sort(viewProdutos);
 			for (Produto produto : viewProdutos) {
 				System.out.println(produto.toString());
 			}
 		}else{
-			System.out.println("Nao tem produto cadastrado");
+			System.out.println("Nao tem cadastrado com esse nome");
 		}
 	}
 }

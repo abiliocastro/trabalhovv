@@ -8,25 +8,27 @@ import org.junit.jupiter.api.Test;
 
 import controlador.ControladorBusca;
 import entidade.Produto;
+import fronteira.Main;
 import fronteira.RepositorioProduto;
 
 class ControladorBuscaTeste {
-	ControladorBusca contBusc = new ControladorBusca();
+	ArrayList<Produto> produtosBuscado;
 	static RepositorioProduto repositorioDeProduto = RepositorioProduto.getInstance();
+	ControladorBusca contBusc = new ControladorBusca();
 	
 	@Test
 	void buscarProduto() {
-		ArrayList<Produto> produtosBuscado = new ArrayList<Produto>(); 
-		Produto P = new Produto(1,"Televisao", 340.99f, 1, "Jose Moveis");
-		Produto P1 = new Produto(2,"Televisao", 349.0f, 4, "Outro");
-		
-		repositorioDeProduto.getProdutos().add(P);
-		repositorioDeProduto.getProdutos().add(P1);
-		String atual = "Televisao";
-		produtosBuscado = contBusc.buscarProduto(atual);
-		for (Produto produto : produtosBuscado) {
-			assertEquals(produto.getNome(), atual);
+		Main.inicializarSistema();
+		produtosBuscado = contBusc.buscarProduto("Iphone");
+		if(!produtosBuscado.isEmpty()) {
+			for (Produto produto : produtosBuscado) {
+				System.out.println(produto.getNome());
+				assertTrue(produto.getNome().equals("xxx"));
+			}
+		} else {
+			System.out.println("Array Vazio");
 		}
+		
 	}
 
 	@Test
@@ -34,7 +36,7 @@ class ControladorBuscaTeste {
 		ArrayList<Produto> produtosBuscado = new ArrayList<Produto>(); 
 		Produto P = null;				
 		repositorioDeProduto.getProdutos().add(P);
-		String atual = "ass";
+		String atual = null;
 		produtosBuscado = contBusc.buscarProduto(atual);
 		for (Produto produto : produtosBuscado) {
 			assertNotNull(produto);

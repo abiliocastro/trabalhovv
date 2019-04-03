@@ -14,7 +14,7 @@ class ControladorProdutoTeste {
 	void cadastrarProduto() throws Exception {
 		assertEquals(true, cp.cadastrarProduto("Celular Ruim",5000,8,"Chico Cell"));
 	}
-	
+
 	//Testando campo NOME
 	@Test
 	void cadastrarProdutoNomeInvalidoNulo() {
