@@ -22,5 +22,6 @@ public class ControladorBusca {
 				}
 			}
 			return produtosBuscados;
-		}
+			
+		}		
 }

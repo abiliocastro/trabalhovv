@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
 import fronteira.InterfaceBusca;
+import fronteira.Main;
 
 class InterfaceBuscaTeste {
 	InterfaceBusca menuBusca = new InterfaceBusca();
@@ -15,6 +16,8 @@ class InterfaceBuscaTeste {
 	PrintStream ps = new PrintStream(baos);
 	PrintStream old = System.out;
 	String os = System.getProperty("os.name").toLowerCase();
+	
+	
 	
 	@Test
 	void interfaceBusca() {
@@ -28,7 +31,24 @@ class InterfaceBuscaTeste {
 			esperado  = "Digite um termo de busca:\r\n";
 		assertEquals(esperado, mostrado);
 	}
-
+	@Test
+	void realizarBuscaProdutoNaoEncontrado() {
+		Main.inicializarSistema();
+		String termoBuscar = "ddd";
+		
+		this.mudarSaida();
+		menuBusca.mostra();
+		String mostrado = this.capturarSaida();
+		String esperado = null;
+		if(os.equals("linux")) {
+				esperado = "Nao tem cadastrado com esse nome\n";
+			
+		}else {
+				esperado  = "Nao tem cadastrado com esse nome\r\n";	
+		}	
+		assertEquals(esperado, mostrado);
+	
+	}
 	
 	
 	
