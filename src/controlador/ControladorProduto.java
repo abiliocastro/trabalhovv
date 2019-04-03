@@ -43,7 +43,7 @@ public class ControladorProduto {
 		return true;
 	}
 	
-	public boolean validarId(int id) {
+	public boolean validarId(long id) {
 		if(id < 0) {
 			return false;
 		}
@@ -69,7 +69,7 @@ public class ControladorProduto {
 		return true;
 	}
 	
-	public boolean removerProduto(int id) throws Exception{
+	public boolean removerProduto(long id) throws Exception{
 		if(!validarId(id)) {
 			throw new IdInvalidoException();
 		}
