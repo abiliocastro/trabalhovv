@@ -33,6 +33,7 @@ public class MenuProduto {
 				case 3:
 					break;
 				case 4:
+					this.OpcaoExcluir();
 					break;
 				default:
 					System.out.println("Opcao invalida!");
@@ -67,13 +68,24 @@ public class MenuProduto {
 		}
 	}
 	
-	public void OpcaoListar() {
-		System.out.println("Digite o ID do produto: ");
-		int id = Integer.parseInt(sc.nextLine());
+	public void OpcaoExcluir() {
+		try {
+			System.out.println("Digite o ID do produto: ");
+			int id = Integer.parseInt(sc.nextLine());
+			
+			if(cp.removerProduto(id)) {
+				System.out.println("Produto excluido");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("formato da entrada invalida");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+		}
 		
 	}
 	
-	public void OpcaoExcluir() {
+	public void OpcaoListar() {
 		for (Produto p: cp.listarProdutos()) {
 			System.out.println(p.toString());
 		}
