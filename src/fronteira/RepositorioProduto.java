@@ -6,7 +6,7 @@ import entidade.Produto;
 
 public class RepositorioProduto {
 	ArrayList<Produto> produtos = new ArrayList<Produto>();
-	
+	 
 	private static RepositorioProduto uniqueInstance = new RepositorioProduto();
 	
 	private RepositorioProduto() {

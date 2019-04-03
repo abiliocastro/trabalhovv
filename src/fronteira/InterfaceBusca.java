@@ -14,7 +14,7 @@ public class InterfaceBusca {
 	public InterfaceBusca() {
 		controladorBusca = new ControladorBusca();
 		entrada = new Scanner(System.in);
-	}
+	} 
 	
 	public void mostra() {
 		System.out.println("Digite um termo de busca:");
@@ -27,7 +27,7 @@ public class InterfaceBusca {
 				System.out.println(produto.toString());
 			}
 		}else{
-			System.out.println("Nao tem produto cadastrado");
+			System.out.println("Nao tem cadastrado com esse nome");
 		}
 	}
 }

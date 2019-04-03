@@ -15,8 +15,8 @@ public class ControladorBusca {
 		public ControladorBusca() {
 			repositorioDeProduto = RepositorioProduto.getInstance();
 			produtosBuscados = new ArrayList<Produto>();
-		}
-		
+		} 
+	
 		public ArrayList<Produto> buscarProduto(String produtoBuscado) {
 			try {
 				buscarP = Pattern.compile(produtoBuscado);
