@@ -1,6 +1,7 @@
 package fronteira;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import controlador.ControladorBusca;
@@ -23,6 +24,8 @@ public class InterfaceBusca {
 		viewProdutos = controladorBusca.buscarProduto(produtoBuscado);
 		if(viewProdutos.size()>0) {
 			System.out.println("Produtos encontrados: ");
+			
+			Collections.sort(viewProdutos);
 			for (Produto produto : viewProdutos) {
 				System.out.println(produto.toString());
 			}
