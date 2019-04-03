@@ -21,7 +21,11 @@ public class Main {
 			System.out.println("PROC_BUSC 0.1");
 			menuInicial.mostra(); 
 			int opcao = entrada.nextInt();
-			menuInicial.selecionarOpcao(opcao);
+			try {
+				menuInicial.selecionarOpcao(opcao);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		
 		entrada.close();	
