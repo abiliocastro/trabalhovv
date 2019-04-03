@@ -12,7 +12,6 @@ class RepositorioProdutoTeste {
 	void cadastrarTeste() {
 		assertTrue(repoProdu.cadastrar(1,"Celular Ruim", 5000, 8, "Chico Cell"));
 	}
-	
 	@Test
 	void editarTeste() {
 		repoProdu.cadastrar(1,"Celular Ruim", 5000, 8, "Chico Cell");
