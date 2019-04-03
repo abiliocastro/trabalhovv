@@ -2,8 +2,6 @@ package fronteira;
 
 import java.util.Scanner;
 
-import entidade.Produto;
-
 public class Main {
 	static RepositorioAdministrador repoAdmins;
 	static RepositorioProduto repoProdutos;
@@ -50,6 +48,6 @@ public class Main {
 
 		repoProdutos.cadastrar(1,"Televisao", 340.99f, 1, "Jose Moveis");
 		repoProdutos.cadastrar(1,"Televisao", 340.99f, 1, "Outro");
-		repoProdutos.cadastrar(3,"banana", 349.0f, 4, "Outro");
+		repoProdutos.cadastrar(3,"Banana", 349.0f, 4, "Outro");
 	}
 }

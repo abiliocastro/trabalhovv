@@ -28,7 +28,6 @@ class ControladorBuscaTeste {
 		} else {
 			System.out.println("Array Vazio");
 		}
-		
 	}
 
 	@Test
