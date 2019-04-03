@@ -3,10 +3,11 @@ package controlador;
 import java.util.ArrayList;
 
 import entidade.Produto;
+import excecoes.IdInexistenteException;
+import excecoes.LojaFornecedoraInvalidaException;
 import excecoes.NomeInvalidoException;
-import excecoes.PrecoInvalidoExceptio;
+import excecoes.PrecoInvalidoException;
 import excecoes.QuantidadeInvalidaException;
-import excecoes.lojaFornecedoraInvalidaException;
 import fronteira.RepositorioProduto;
 
 public class ControladorProduto {
@@ -46,16 +47,16 @@ public class ControladorProduto {
 			throw new NomeInvalidoException();
 		}
 		if(!validarPreco(preco)) {
-			throw new PrecoInvalidoExceptio();
+			throw new PrecoInvalidoException();
 		}
 		if(!validarQuantidade(quantidade)) {
 			throw new QuantidadeInvalidaException();
 		}
 		if(!validarLojaFornecedor(lojaFornecedora)) {
-			throw new lojaFornecedoraInvalidaException();
+			throw new LojaFornecedoraInvalidaException();
 		}
 		
-		repProdutos.cadastrar(this.id, nome, preco, quantidade, lojaFornecedora);
+		repProdutos.cadastrar(ControladorProduto.id, nome, preco, quantidade, lojaFornecedora);
 		id++;
 		return true;
 	}
@@ -69,5 +70,26 @@ public class ControladorProduto {
 	
 	public ArrayList<Produto> listarProdutos(){
 		return repProdutos.getProdutos();
+	}
+
+	public boolean editarProduto(long id, String nome, float preco, int quantidade, String lojaFornecedora) throws Exception {
+		if(!validarNome(nome)) {
+			throw new NomeInvalidoException();
+		}
+		if(!validarPreco(preco)) {
+			throw new PrecoInvalidoException();
+		}
+		if(!validarQuantidade(quantidade)) {
+			throw new QuantidadeInvalidaException();
+		}
+		if(!validarLojaFornecedor(lojaFornecedora)) {
+			throw new LojaFornecedoraInvalidaException();
+		}
+		
+		if(repProdutos.editar(id, nome, preco, quantidade, lojaFornecedora)) {
+			return true;
+		} else {
+			throw new IdInexistenteException();
+		}
 	}
 }

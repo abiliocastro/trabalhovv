@@ -1,7 +1,6 @@
 package fronteira;
 
 import java.util.Scanner;
-
 import controlador.ControladorProduto;
 import entidade.Produto;
 
@@ -14,7 +13,7 @@ public class MenuProduto {
 		sc = new Scanner(System.in);
 	}
 		
-	public void SelecionarOpcao() {
+	public void selecionarOpcao() {
 		boolean continuar = true;
 		while(continuar) {
 			System.out.println("1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:");
@@ -29,28 +28,28 @@ public class MenuProduto {
 					this.OpcaoListar();
 					break;
 				case 2:		
-					this.OpcaoCadastro();
+					this.opcaoCadastro();
 					break;
 				case 3:
 					break;
 				case 4:
 					break;
 				default:
-					System.out.println("Opção invalida!");
+					System.out.println("Opcao invalida!");
 				}
 			} catch (NumberFormatException e) {
 				System.out.println("formato da entrada invalida");
-				SelecionarOpcao();
+				selecionarOpcao();
 			}
 		}
 		
 	}
 	
-	public void OpcaoCadastro() {
+	public void opcaoCadastro() {
 		try {
 			System.out.println("Digite o nome do produto: ");
 			String nome = sc.nextLine();
-			System.out.println("Digite o preço do produto: ");
+			System.out.println("Digite o preco do produto: ");
 			float preco = Float.parseFloat(sc.nextLine());
 			System.out.println("Digite a quantidade do produto: ");
 			int quantidade = Integer.parseInt(sc.nextLine());
@@ -60,10 +59,10 @@ public class MenuProduto {
 			System.out.println(cp.cadastrarProduto(nome, preco, quantidade, lojaFornecedora));
 		}catch (NumberFormatException e) {
 			System.out.println("formato da entrada invalida");
-			OpcaoCadastro();
+			opcaoCadastro();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
-			OpcaoCadastro();
+			opcaoCadastro();
 		}finally {
 		}
 	}

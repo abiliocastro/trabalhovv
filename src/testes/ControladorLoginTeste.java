@@ -12,22 +12,6 @@ class ControladorLoginTeste {
 	ControladorLogin cl = new ControladorLogin();
 	
 	@Test
-	void usuarioInexistente() {
-		assertThrows(UsuarioInexistenteException.class, () -> {
-			Main.inicializarSistema();
-			cl.realizarLogin("chico", "isso");
-		});
-	}
-	
-	@Test
-	void senhaIncorreta() {
-		assertThrows(SenhaIncorretaException.class, () -> {
-			Main.inicializarSistema();
-			cl.realizarLogin("abilio", "errada");
-		});
-	}
-	
-	@Test
 	void usuarioInvalido() {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
@@ -48,6 +32,38 @@ class ControladorLoginTeste {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
 			cl.realizarLogin("", "luke");
+		});
+	}
+	
+	@Test
+	void usuarioInexistente() {
+		assertThrows(UsuarioInexistenteException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("chico", "luke");
+		});
+		assertThrows(UsuarioInexistenteException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("antonio", "mlteamor");
+		});
+		assertThrows(UsuarioInexistenteException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("francisco", "senha12");
+		});
+	}
+	
+	@Test
+	void senhaIncorreta() {
+		assertThrows(SenhaIncorretaException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("abilio", "errada");
+		});
+		assertThrows(SenhaIncorretaException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("abilio", " ");
+		});
+		assertThrows(SenhaIncorretaException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("abilio", "");
 		});
 	}
 	

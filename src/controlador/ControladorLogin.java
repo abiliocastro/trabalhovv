@@ -1,12 +1,11 @@
 package controlador;
 
 import java.util.regex.Pattern;
-
-import entidade.Administrador;
 import excecoes.SenhaIncorretaException;
 import excecoes.UsuarioInexistenteException;
 import excecoes.UsuarioInvalidoException;
 import fronteira.RepositorioAdministrador;
+import entidade.Administrador;
 
 public class ControladorLogin {
 	static RepositorioAdministrador repoAdmins;
@@ -28,6 +27,10 @@ public class ControladorLogin {
 		}
 		throw new UsuarioInvalidoException();
 		 
+	}
+	
+	public boolean validaUsuario(String nomeDeUsuario) {
+		return Pattern.matches("^[a-zA-Z$][a-zA-Z_$0-9]*$", nomeDeUsuario);
 	}
 	
 }	

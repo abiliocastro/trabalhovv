@@ -1,13 +1,11 @@
 package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import org.junit.jupiter.api.Test;
-
 import fronteira.InterfaceBusca;
+import fronteira.Main;
 
 class InterfaceBuscaTeste {
 	InterfaceBusca menuBusca = new InterfaceBusca();
@@ -28,20 +26,21 @@ class InterfaceBuscaTeste {
 			esperado  = "Digite um termo de busca:\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Test
+	void realizarBuscaProdutoNaoEncontrado() {
+		Main.inicializarSistema();
+		this.mudarSaida();
+		menuBusca.mostra();
+		String mostrado = this.capturarSaida();
+		String esperado = null;
+		if(os.equals("linux")) {
+				esperado = "Nao tem cadastrado com esse nome\n";
+			
+		}else {
+				esperado  = "Nao tem cadastrado com esse nome\r\n";	
+		}	
+		assertEquals(esperado, mostrado);
+	}
 	
 	private void mudarSaida() {
 		System.setOut(ps);

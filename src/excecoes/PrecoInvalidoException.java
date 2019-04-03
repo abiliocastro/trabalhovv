@@ -1,12 +1,8 @@
 package excecoes;
 
-public class PrecoInvalidoExceptio extends Exception {
+public class PrecoInvalidoException extends Exception {
 
 	private static final long serialVersionUID = 1L;
-	
-	public PrecoInvalidoExceptio() {
-	
-	}
 	
 	@Override
 	public String getMessage() {

@@ -7,7 +7,7 @@ public class InterfaceMenuInicial {
 		System.out.println("1- Buscar | 2- Entrar");
 	}
 	
-	public void selecionarOpcao(int entrada) {
+	public void selecionarOpcao(int entrada) throws Exception {
 		switch(entrada) {
 			case 1:
 				this.busca();

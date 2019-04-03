@@ -1,11 +1,11 @@
 package excecoes;
 
-public class NomeInvalidoException extends Exception{
+public class IdInexistenteException extends Exception {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
 	public String getMessage() {
-		return("Nome invalido");
+		return "id inexistente";
 	}
 }
