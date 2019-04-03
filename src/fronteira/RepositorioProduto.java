@@ -34,13 +34,10 @@ public class RepositorioProduto {
 		return false;
 	}
 	
-	public boolean removerProduto(int id) {
-		return produtos.remove(id)!=null;
-	}
-	
-	public boolean existeProduto(int id) {
+	public boolean removerProduto(long id) {
 		for (Produto produto : produtos) {
 			if(produto.getId() == id) {
+				produtos.remove(produto);
 				return true;
 			}
 		}
