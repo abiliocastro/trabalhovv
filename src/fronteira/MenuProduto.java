@@ -1,7 +1,6 @@
 package fronteira;
 
 import java.util.Scanner;
-
 import controlador.ControladorProduto;
 
 public class MenuProduto {
@@ -34,7 +33,7 @@ public class MenuProduto {
 				case 4:
 					break;
 				default:
-					System.out.println("Op��o invalida!");
+					System.out.println("Opcao invalida!");
 				}
 			} catch (NumberFormatException e) {
 				System.out.println("formato da entrada invalida");
@@ -48,7 +47,7 @@ public class MenuProduto {
 		try {
 			System.out.println("Digite o nome do produto: ");
 			String nome = sc.nextLine();
-			System.out.println("Digite o pre�o do produto: ");
+			System.out.println("Digite o preco do produto: ");
 			float preco = Float.parseFloat(sc.nextLine());
 			System.out.println("Digite a quantidade do produto: ");
 			int quantidade = Integer.parseInt(sc.nextLine());

@@ -1,7 +1,6 @@
 package fronteira;
 
 import java.util.Scanner;
-
 import controlador.ControladorProduto;
 
 public class Main {

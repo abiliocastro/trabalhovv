@@ -34,10 +34,5 @@ public class RepositorioAdministrador {
 		}
 		return null;
 	}
-
-	
-	
-	
-	
 	
 }

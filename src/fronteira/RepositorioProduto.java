@@ -1,7 +1,6 @@
 package fronteira;
 
 import java.util.ArrayList;
-
 import entidade.Produto;
 
 public class RepositorioProduto {

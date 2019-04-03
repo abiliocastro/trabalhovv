@@ -1,12 +1,11 @@
 package controlador;
 
 import java.util.regex.Pattern;
-
-import entidade.Administrador;
 import excecoes.SenhaIncorretaException;
 import excecoes.UsuarioInexistenteException;
 import excecoes.UsuarioInvalidoException;
 import fronteira.RepositorioAdministrador;
+import entidade.Administrador;
 
 public class ControladorLogin {
 	static RepositorioAdministrador repoAdmins;

@@ -1,18 +1,15 @@
 package fronteira;
 
 import java.util.Scanner;
-
 import controlador.ControladorLogin;
 
 public class InterfaceLogin {
 	private Scanner entrada;
 	private ControladorLogin controladorLogin;
-//	private MenuProduto menuProduto;
 	
 	public InterfaceLogin() {
 		entrada = new Scanner(System.in);
 		controladorLogin = new ControladorLogin();
-//		menuProduto = new MenuProduto();
 	}
 	
 	public boolean realizarLogin() throws Exception {

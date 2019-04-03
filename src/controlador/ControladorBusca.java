@@ -1,7 +1,6 @@
 package controlador;
 
 import java.util.ArrayList;
-
 import entidade.Produto;
 import fronteira.RepositorioProduto;
 
@@ -11,7 +10,6 @@ public class ControladorBusca {
 		
 		public ControladorBusca() {
 			repositorioDeProduto = RepositorioProduto.getInstance();
-			//todosProdutos = ;
 		} 
 	
 		public ArrayList<Produto> buscarProduto(String termoBuscado) {
