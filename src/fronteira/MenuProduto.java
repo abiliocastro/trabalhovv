@@ -25,7 +25,7 @@ public class MenuProduto {
 					continuar = false;
 					break;
 				case 1:
-					this.OpcaoListar();
+					this.opcaoListar();
 					break;
 				case 2:		
 					this.opcaoCadastro();
@@ -33,7 +33,7 @@ public class MenuProduto {
 				case 3:
 					break;
 				case 4:
-					this.OpcaoExcluir();
+					this.opcaoExcluir();
 					break;
 				default:
 					System.out.println("Opcao invalida!");
@@ -68,7 +68,7 @@ public class MenuProduto {
 		}
 	}
 	
-	public void OpcaoExcluir() {
+	public void opcaoExcluir() {
 		try {
 			System.out.println("Digite o ID do produto: ");
 			int id = Integer.parseInt(sc.nextLine());
@@ -85,7 +85,7 @@ public class MenuProduto {
 		
 	}
 	
-	public void OpcaoListar() {
+	public void opcaoListar() {
 		for (Produto p: cp.listarProdutos()) {
 			System.out.println(p.toString());
 		}
