@@ -1,5 +1,6 @@
 package fronteira;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import controlador.ControladorProduto;
 
@@ -13,14 +14,21 @@ public class Main {
 		inicializarSistema();
 		
 		boolean sair = false;
+		String opcao ;
 		while(!sair) {
-			System.out.println("PROC_BUSC 0.1");
-			menuInicial.mostra(); 
-			int opcao = entrada.nextInt();
 			try {
+				System.out.println("PROC_BUSC 0.1");
+				menuInicial.mostra(); 
+					
+				opcao = entrada.nextLine();
 				menuInicial.selecionarOpcao(opcao);
+				
+			}catch (InputMismatchException e) {
+				System.out.println("Opcao invalida");
+				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
+				
 			}
 		}
 		

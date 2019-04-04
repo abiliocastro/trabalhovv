@@ -30,7 +30,7 @@ class Menus {
 	@Test
 	void opcaoInvalida3() throws Exception {
 		this.mudarSaida();
-		menuInicial.selecionarOpcao(3);
+		menuInicial.selecionarOpcao("3");
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
@@ -43,7 +43,7 @@ class Menus {
 	@Test
 	void opcaoInvalidaNegativa() throws Exception {
 		this.mudarSaida();
-		menuInicial.selecionarOpcao(-1);
+		menuInicial.selecionarOpcao("-1");
 		String mostrado = this.capturarSaida();
 		String esperado;
 		if(os.equals("linux"))
