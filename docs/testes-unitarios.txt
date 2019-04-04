@@ -104,7 +104,7 @@ Exclusão de Produto
   id  |   resultado
 ______|____________________
  1    |  produto excluído        
- 88   |    id invalido       
+ 88   |    id inexistente       
  -1   |    id invalido
 
 

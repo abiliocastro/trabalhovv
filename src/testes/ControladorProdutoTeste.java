@@ -10,7 +10,8 @@ import fronteira.Main;
 class ControladorProdutoTeste {
 	private ControladorProduto cp = new ControladorProduto();
 	
-	//TESTES DE CADASTRO DE PRODUTO
+//TESTES DE CADASTRO DE PRODUTO
+ 	//Testando sucesso cadastro
 	@Test
 	void cadastrarProduto() throws Exception {
 		assertEquals(true, cp.cadastrarProduto("Celular Ruim",5000,8,"Chico Cell"));
@@ -93,15 +94,18 @@ class ControladorProdutoTeste {
 	}
 
 	@Test
-	void idInexistente() {
+	void editarProdutoidInexistente() {
 		assertThrows(IdInexistenteException.class, () -> {
 			cp.editarProduto(88, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
 		});
-		assertThrows(IdInexistenteException.class, () -> {
+	}
+
+	void editarProdutoIdInvalido() {
+		assertThrows(IdInvalidoException.class, () -> {
 			cp.editarProduto(-1, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
 		});
 	}
-
+	
 	//Testando edicao campo NOME
 	@Test
 	void editarProdutoNomeInvalidoNulo() {
@@ -136,7 +140,7 @@ class ControladorProdutoTeste {
 	@Test
 	void editarProdutoQuantidadeInvalidaNegativa() {
 		assertThrows(QuantidadeInvalidaException.class, () -> {
-			cp.cadastrarProduto("Celular Ruim",5000,-8,"Chico Cell");
+			cp.editarProduto(3, "Celular Ruim",5000,-8,null);
 		});
 	}
 	
@@ -162,18 +166,30 @@ class ControladorProdutoTeste {
 		}); 
 	}
 
-	//TESTES DE EXCLUSÃO DE PRODUTO
+//TESTES DE EXCLUSÃO DE PRODUTO
+	
+	//Testando Excluir Sucesso
 	@Test
 	void exluirProduto() throws Exception {
-		assertEquals(true, cp.cadastrarProduto("Celular Ruim",5000,8,"Chico Cell"));
+		Main.inicializarSistema();
+		assertEquals(true, cp.removerProduto(0));
 	}
-
-	//Testando campo NOME
+	
+	//Testando campo ID
 	@Test
-	void exluirProdutoIdInvalidoNulo() {
-		assertThrows(NomeInvalidoException.class, () -> {
-			cp.cadastrarProduto(null,5000,8,"Chico Cell");
+	void exluirProdutoIdInvalidoNegativo() {
+		assertThrows(IdInvalidoException.class, () -> {
+			cp.removerProduto(-3);
 		}); 
 	}
+	
+	@Test
+	void exluirProdutoIdInvalidoInexistente() {
+		assertThrows(IdInexistenteException.class, () -> {
+			cp.removerProduto(999);
+		}); 
+	}
+	
+//TESTE LISTAR PRODUTOS
 	
 }

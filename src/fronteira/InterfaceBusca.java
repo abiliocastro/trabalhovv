@@ -24,8 +24,6 @@ public class InterfaceBusca {
 		viewProdutos = controladorBusca.buscarProduto(produtoBuscado);
 		if(viewProdutos.size()>0) {
 			System.out.println("Produtos encontrados:");
-			System.out.println("abilio123");
-			System.out.println("aquiaqui123");
 			Collections.sort(viewProdutos);
 			for (Produto produto : viewProdutos) {
 				System.out.println(produto.toString());
