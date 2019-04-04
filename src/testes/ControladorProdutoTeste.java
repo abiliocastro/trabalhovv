@@ -41,6 +41,20 @@ class ControladorProdutoTeste {
 		}); 
 	}
 	
+	@Test
+	void cadastrarProdutoNomeInvalidoMaior255() {
+		String nomeInvalido = "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghij";
+		assertThrows(NomeInvalidoException.class, () -> {
+			cp.cadastrarProduto(nomeInvalido,5000,8,"Chico Cell");
+		}); 
+	}
+	
 	//Testando campo PRECO
 	@Test
 	void cadastrarProdutoPrecoInvalidoNegativo() {
@@ -78,6 +92,21 @@ class ControladorProdutoTeste {
 			cp.cadastrarProduto("Celular Ruim",5000,8,"");
 		}); 
 	}
+	
+	@Test
+	void cadastrarProdutoNomeEmpresaInvalidoMaior255() {
+		String nomeInvalido = "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghijabcdefghij"
+							+ "abcdefghijabcdefghijabcdefghij";
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
+			cp.cadastrarProduto("Celular Ruim",5000,8,nomeInvalido);
+		}); 
+	}
+
 	
 	//Testando campo LISTAR
 	@Test

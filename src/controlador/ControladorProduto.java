@@ -16,7 +16,7 @@ public class ControladorProduto {
 	static long id = 0;
 	
 	public boolean validarNome(String nome) {
-		if(nome == null || !nome.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$")) {
+		if(nome == null || !nome.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$") || nome.length() > 255) {
 			return false;
 		}
 		return true;
@@ -37,7 +37,7 @@ public class ControladorProduto {
 	}
 	
 	public boolean validarLojaFornecedor(String lojaFornecedora) {
-		if(lojaFornecedora == null || !lojaFornecedora.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$")) {
+		if(lojaFornecedora == null || !lojaFornecedora.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$")|| lojaFornecedora.length() > 255) {
 			return false;
 		}
 		return true;
