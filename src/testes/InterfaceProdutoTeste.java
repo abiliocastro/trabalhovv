@@ -29,41 +29,41 @@ public class InterfaceProdutoTeste{
 		if(os.equals("linux"))
 			esperado = "1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:\n";
 		else
-			esperado  = "1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\r\nDigite a opc:\r\n";
+			esperado  = "1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:\r\n";
 		assertEquals(esperado, mostrado);
 	}
 
 	// Testando saida do caso cadastrar
 	@Test
 	void menuProdutoCadastrar() throws Exception {
+		System.out.println("DIGITE UM PRODUTO VALIDO PARA CADASTRAR(nome, preco, quantidade, loja fornecedora)");
 		Main.inicializarSistema();
 		this.mudarSaida();
 		mp.selecionarOpcao(2);
 		String mostrado = this.capturarSaida();
-		System.out.println(mostrado);
 		String esperado;
 		if(os.equals("linux"))
 			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
 		else
 			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
+		assertEquals(esperado, mostrado);
+	}
+
+	@Test
+	void menuProdutoEditar() throws Exception {
+		System.out.println("DIGITE UM PRODUTO VALIDO PARA EDITAR(id, nome, preco, quantidade, loja fornecedora)");
+		Main.inicializarSistema();
+		this.mudarSaida();
+		mp.selecionarOpcao(3);
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Digite o ID do produto: \nDigite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto editado com sucesso\n";
+		else
+			esperado = "Digite o ID do produto: \r\nDigite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto editado com sucesso\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
-	@Test
-	void menuProdutoEditar() throws Exception {
-		Main.inicializarSistema();
-		this.mudarSaida();
-		mp.selecionarOpcao(2);
-		String mostrado = this.capturarSaida();
-		System.out.println(mostrado);
-		String esperado;
-		if(os.equals("linux"))
-			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
-		else
-			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
-		assertEquals(esperado, mostrado);
-	}
-	/**/	
 	private void mudarSaida() {
 		System.setOut(ps);
 	}
