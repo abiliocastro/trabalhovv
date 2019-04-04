@@ -69,22 +69,6 @@ public class ControladorProduto {
 		return true;
 	}
 	
-	public boolean removerProduto(long id) throws Exception{
-		if(!validarId(id)) {
-			throw new IdInvalidoException();
-		}
-		
-		if(repProdutos.removerProduto(id)) {
-			return true;
-		}else {
-			throw new IdInexistenteException();
-		}
-	}
-	
-	public ArrayList<Produto> listarProdutos(){
-		return repProdutos.getProdutos();
-	}
-
 	public boolean editarProduto(long id, String nome, float preco, int quantidade, String lojaFornecedora) throws Exception {
 		if(!validarNome(nome)) {
 			throw new NomeInvalidoException();
@@ -105,4 +89,21 @@ public class ControladorProduto {
 			throw new IdInexistenteException();
 		}
 	}
+	
+	public boolean removerProduto(long id) throws Exception{
+		if(!validarId(id)) {
+			throw new IdInvalidoException();
+		}
+		
+		if(repProdutos.removerProduto(id)) {
+			return true;
+		}else {
+			throw new IdInexistenteException();
+		}
+	}
+	
+	public ArrayList<Produto> listarProdutos(){
+		return repProdutos.getProdutos();
+	}
+
 }
