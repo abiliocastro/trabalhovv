@@ -27,7 +27,8 @@ class ControladorBuscaTeste {
 	}
 
 	@Test
-	void buscarProdutoNulo() { 			
+	void buscarProdutoNulo() { 
+		Main.inicializarSistema();
 		produtosBuscado = contBusc.buscarProduto(null);
 		assertTrue(produtosBuscado.isEmpty());
 	}
