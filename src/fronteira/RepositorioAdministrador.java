@@ -6,7 +6,6 @@ import entidade.Administrador;
 public class RepositorioAdministrador {
 	
 	private ArrayList<Administrador> administradores;
-
 	private static RepositorioAdministrador repositorioAdministrador = new RepositorioAdministrador();
 	
 	private RepositorioAdministrador() {

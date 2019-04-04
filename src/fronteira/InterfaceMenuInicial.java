@@ -14,7 +14,6 @@ public class InterfaceMenuInicial {
 	public void selecionarOpcao(String entrada) throws Exception {
 		try {
 			switch(entrada) {
-				
 				case "1":
 					this.interfaceBusca.mostra();
 					break;

@@ -3,7 +3,6 @@ package testes;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceBusca;
 import fronteira.Main;
@@ -48,12 +47,6 @@ class InterfaceBuscaTeste {
 		}	
 		assertEquals(esperado, mostrado);
 	}
-	
-//	private void simularEntrada(String entrada) {
-//		ByteArrayInputStream in = new ByteArrayInputStream(entrada.getBytes());
-//		System.setIn(in);
-//		System.setIn(System.in);
-//	}
 	
 	private void mudarSaida() {
 		System.setOut(ps);

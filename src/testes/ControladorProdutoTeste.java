@@ -1,11 +1,7 @@
 package testes;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 import excecoes.*;
@@ -15,7 +11,7 @@ import fronteira.RepositorioProduto;
 class ControladorProdutoTeste {
 	private ControladorProduto cp = new ControladorProduto();
 	private RepositorioProduto repProdutos = RepositorioProduto.getInstance();
-
+	
 //TESTES DE CADASTRO DE PRODUTO
  	//Testando sucesso cadastro
 	@Test
@@ -172,7 +168,7 @@ class ControladorProdutoTeste {
 		}); 
 	}
 
-//TESTES DE EXCLUSÃO DE PRODUTO
+//TESTES DE EXCLUSAO DE PRODUTO
 	
 	//Testando Excluir Sucesso
 	@Test
