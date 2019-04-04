@@ -25,7 +25,7 @@ public class RepositorioProduto {
 	}
 	
 	public boolean editar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
-		for (Produto produto : produtos) {
+		for (Produto produto : this.produtos) {
 			if(produto.getId() == id) {
 				produto.setNome(nome);
 				produto.setPreco(preco);
