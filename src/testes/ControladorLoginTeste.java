@@ -12,7 +12,7 @@ class ControladorLoginTeste {
 	ControladorLogin cl = new ControladorLogin();
 	
 	@Test
-	void usuarioInvalido() {
+	void usuarioInvalidoComecandoNumero() {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
 			cl.realizarLogin("123abilio", "luke");

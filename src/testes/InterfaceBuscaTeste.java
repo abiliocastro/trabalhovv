@@ -21,14 +21,16 @@ class InterfaceBuscaTeste {
 		this.mudarSaida();
 		interfaceBusca.mostra();
 		String mostrado = this.capturarSaida();
-		String esperado;
-		if(os.equals("linux"))
-			esperado = "^[Digite um termo de busca:\nProdutos encontrados:\n$][a-zA-Z$][a-zA-Z_$0-9]*[\n][a-zA-Z$][a-zA-Z_$0-9]*[\n]$";
-		else
-			esperado  = "^Digite um termo de busca:\r\nProdutos encontrados:\r\n[a-zA-Z0-9]+$";
-		//assertEquals(esperado, mostrado);
-		assertTrue(Pattern.matches(esperado, mostrado));
-		
+		String[] separado;
+		String esperado = "Digite um termo de busca:Produtos encontrados:";
+		if(os.equals("linux")) {
+			separado = mostrado.split("\n");
+			mostrado = separado[0] + separado[1];
+		} else {
+			separado = mostrado.split("\r\n");
+			mostrado = separado[0] + separado[1];
+		}
+		assertEquals(esperado, mostrado);
 	}
 	
 	@Test

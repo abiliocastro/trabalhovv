@@ -33,7 +33,7 @@ class InterfaceLoginTeste {
 	// Quando digita um usuario invalido uma vez
 	@Test
 	void loginUsuarioInvalidoSenhaCorreto() throws Exception {
-		System.out.println("DIGITE UM USUARIO INVALIDO E DEPOIS UM SUARIO E SENHA CORRETO");
+		System.out.println("DIGITE UM USUARIO INVALIDO E DEPOIS UM USUARIO E SENHA CORRETO");
 		Main.inicializarSistema();
 		this.mudarSaida();
 		interfaceLogin.realizarLogin();
