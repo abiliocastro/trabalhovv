@@ -18,8 +18,7 @@ public class Main {
 		while(!sair) {
 			try {
 				System.out.println("PROC_BUSC 0.1");
-				menuInicial.mostra(); 
-					
+				menuInicial.mostra(); 	
 				opcao = entrada.nextLine();
 				menuInicial.selecionarOpcao(opcao);
 				

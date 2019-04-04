@@ -10,7 +10,7 @@ import fronteira.Main;
 class ControladorProdutoTeste {
 	private ControladorProduto cp = new ControladorProduto();
 	
-//TESTES DE CADASTRO DE PRODUTO
+	//TESTES DE CADASTRO DE PRODUTO
  	//Testando sucesso cadastro
 	@Test
 	void cadastrarProduto() throws Exception {
@@ -166,7 +166,7 @@ class ControladorProdutoTeste {
 		}); 
 	}
 
-//TESTES DE EXCLUSÃO DE PRODUTO
+//TESTES DE EXCLUSï¿½O DE PRODUTO
 	
 	//Testando Excluir Sucesso
 	@Test

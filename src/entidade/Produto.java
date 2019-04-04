@@ -56,21 +56,18 @@ public class Produto implements Comparable<Produto>{
 		this.lojaFornecedora = lojaFornecedora;
 	}
 	
-	
-	@Override
-	public String toString() {
-		return "[id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
-				+ ", lojaFornecedora=" + lojaFornecedora + "]";
-	}
-	
-	
-	
 	public boolean match(String padrao) {
 		boolean nomeMatch = this.nome.toLowerCase().contains(padrao.toLowerCase());
 		if(nomeMatch) {
 			return true;
 		} 
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "[id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+				+ ", lojaFornecedora=" + lojaFornecedora + "]";
 	}
 
 	@Override

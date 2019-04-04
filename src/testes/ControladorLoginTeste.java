@@ -17,23 +17,40 @@ class ControladorLoginTeste {
 			Main.inicializarSistema();
 			cl.realizarLogin("123abilio", "luke");
 		});
-		assertThrows(UsuarioInvalidoException.class, () -> {
-			Main.inicializarSistema();
-			cl.realizarLogin("_leandro", "mlteamor");
-		});
+	}
+	
+	@Test
+	void usuarioInvalidoComecandoArroba() {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
 			cl.realizarLogin("@abilio", "luke");
 		});
+	}
+	
+	@Test
+	void usuarioInvalidoComecandoUnderline() {
+		assertThrows(UsuarioInvalidoException.class, () -> {
+			Main.inicializarSistema();
+			cl.realizarLogin("_leandro", "mlteamor");
+		});
+	}
+	
+	@Test
+	void usuarioInvalidoEspaco() {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
 			cl.realizarLogin(" ", "luke");
 		});
+	}
+	
+	@Test
+	void usuarioInvalidoVazio() {
 		assertThrows(UsuarioInvalidoException.class, () -> {
 			Main.inicializarSistema();
 			cl.realizarLogin("", "luke");
 		});
 	}
+	
 	
 	@Test
 	void usuarioInexistente() {
