@@ -34,36 +34,80 @@ public class InterfaceProdutoTeste{
 	}
 
 	// Testando saida do caso cadastrar
+//	@Test
+//	void menuProdutoCadastrar() throws Exception {
+//		Main.inicializarSistema();
+//		this.mudarSaida();
+//		mp.selecionarOpcao(2);
+//		String mostrado = this.capturarSaida();
+//		String esperado;
+//		if(os.equals("linux"))
+//			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
+//		else
+//			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
+//		assertEquals(esperado, mostrado);
+//	}
+	
+//	@Test
+//	void menuProdutoEditar() throws Exception {
+//		Main.inicializarSistema();
+//		this.mudarSaida();
+//		mp.selecionarOpcao(2);
+//		String mostrado = this.capturarSaida();
+//		System.out.println(mostrado);
+//		String esperado;
+//		if(os.equals("linux"))
+//			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
+//		else
+//			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
+//		assertEquals(esperado, mostrado);
+//	}
+	
 	@Test
-	void menuProdutoCadastrar() throws Exception {
+	void menuProdutoExcluirIdExistente() {
 		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID DE PRODUTO EXISTENTE");
 		this.mudarSaida();
-		mp.selecionarOpcao(2);
+		mp.opcaoExcluir();
 		String mostrado = this.capturarSaida();
-		System.out.println(mostrado);
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
+			esperado = "Digite o ID do produto: \nProduto excluido\n";
 		else
-			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
+			esperado = "Digite o ID do produto: \r\nProduto excluido\r\n";
 		assertEquals(esperado, mostrado);
 	}
 	
 	@Test
-	void menuProdutoEditar() throws Exception {
+	void menuProdutoExcluirIdInvalido() {
 		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID INVALIDO (_,@,#,nome)");
 		this.mudarSaida();
-		mp.selecionarOpcao(2);
+		mp.opcaoExcluir();
 		String mostrado = this.capturarSaida();
-		System.out.println(mostrado);
 		String esperado;
 		if(os.equals("linux"))
-			esperado = "Digite o nome do produto: \nDigite o preco do produto: \nDigite a quantidade do produto: \nDigite a loja fornecedora do produto: \nproduto cadastrado com sucesso\n";
+			esperado = "Digite o ID do produto: \nformato da entrada invalida\n";
 		else
-			esperado = "Digite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto cadastrado com sucesso\r\n";
+			esperado = "Digite o ID do produto: \r\nformato da entrada invalida\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	/**/	
+	
+	@Test
+	void menuProdutoExcluirIdInexistente() {
+		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID INEXISTENTE (-1,999999)");
+		this.mudarSaida();
+		mp.opcaoExcluir();
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Digite o ID do produto: \nid inexistente\n";
+		else
+			esperado = "Digite o ID do produto: \r\nid inexistente\r\n";
+		assertEquals(esperado, mostrado);
+	}
+	
 	private void mudarSaida() {
 		System.setOut(ps);
 	}
