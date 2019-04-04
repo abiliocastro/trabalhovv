@@ -26,10 +26,10 @@ public class InterfaceBusca {
 			System.out.println("Produtos encontrados:");
 			System.out.println("abilio123");
 			System.out.println("aquiaqui123");
-//			Collections.sort(viewProdutos);
-//			for (Produto produto : viewProdutos) {
-//				System.out.println(produto.toString());
-//			}
+			Collections.sort(viewProdutos);
+			for (Produto produto : viewProdutos) {
+				System.out.println(produto.toString());
+			}
 		}else{
 			System.out.println("Nao foram encontrados produtos com o termo pesquisado");
 		}

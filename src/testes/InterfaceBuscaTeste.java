@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.regex.Pattern;
-
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceBusca;
 import fronteira.Main;

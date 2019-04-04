@@ -12,9 +12,6 @@ public class Main {
 		InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
 		inicializarSistema();
 		
-//		InterfaceBusca ib = new InterfaceBusca();
-//		ib.mostra();
-		
 		boolean sair = false;
 		while(!sair) {
 			System.out.println("PROC_BUSC 0.1");
