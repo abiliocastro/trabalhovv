@@ -59,8 +59,8 @@ public class Produto implements Comparable<Produto>{
 	
 	@Override
 	public String toString() {
-		return "[id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
-				+ ", lojaFornecedora=" + lojaFornecedora + "]";
+		return "|id= " + id + "| nome= " + nome + "| preco= " + preco + "| quantidade= " + quantidade
+				+ "| lojaFornecedora= " + lojaFornecedora + "|";
 	}
 	
 	
