@@ -16,7 +16,7 @@ public class ControladorProduto {
 	static long id = 0;
 	
 	public boolean validarNome(String nome) {
-		if(nome == null || nome.equals("") || nome.equals(" ")) {
+		if(nome == null || !nome.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$")) {
 			return false;
 		}
 		return true;
@@ -37,7 +37,7 @@ public class ControladorProduto {
 	}
 	
 	public boolean validarLojaFornecedor(String lojaFornecedora) {
-		if(lojaFornecedora == null || lojaFornecedora.equals("") || lojaFornecedora.equals(" ")) {
+		if(lojaFornecedora == null || !lojaFornecedora.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$")) {
 			return false;
 		}
 		return true;
@@ -67,6 +67,19 @@ public class ControladorProduto {
 		repProdutos.cadastrar(ControladorProduto.id, nome, preco, quantidade, lojaFornecedora);
 		id++;
 		return true;
+	}
+	
+	public boolean existeId(long id) throws Exception {
+		if(!validarId(id)) {
+			throw new IdInvalidoException();
+		}
+		
+		for (Produto p : repProdutos.getProdutos()) {
+			if(p.getId() == id) {
+				return true;
+			}
+		}
+		throw new IdInexistenteException();
 	}
 	
 	public boolean editarProduto(long id, String nome, float preco, int quantidade, String lojaFornecedora) throws Exception {

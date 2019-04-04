@@ -31,6 +31,7 @@ public class MenuProduto {
 					this.opcaoCadastro();
 					break;
 				case 3:
+					this.opcaoEditar();
 					break;
 				case 4:
 					this.opcaoExcluir();
@@ -57,13 +58,44 @@ public class MenuProduto {
 			System.out.println("Digite a loja fornecedora do produto: ");
 			String lojaFornecedora= sc.nextLine();
 			
-			System.out.println(cp.cadastrarProduto(nome, preco, quantidade, lojaFornecedora));
+			if(cp.cadastrarProduto(nome, preco, quantidade, lojaFornecedora)) {
+				System.out.println("produto cadastrado com sucesso");
+			}
 		}catch (NumberFormatException e) {
 			System.out.println("formato da entrada invalida");
 			opcaoCadastro();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			opcaoCadastro();
+		}finally {
+		}
+	}
+	
+	public void opcaoEditar() {
+		try {
+			System.out.println("Digite o ID do produto: ");
+			int id = Integer.parseInt(sc.nextLine());
+			
+			if(cp.existeId(id)) {
+				System.out.println("Digite o nome do produto: ");
+				String nome = sc.nextLine();
+				System.out.println("Digite o preco do produto: ");
+				float preco = Float.parseFloat(sc.nextLine());
+				System.out.println("Digite a quantidade do produto: ");
+				int quantidade = Integer.parseInt(sc.nextLine());
+				System.out.println("Digite a loja fornecedora do produto: ");
+				String lojaFornecedora= sc.nextLine();
+				
+				if(cp.editarProduto(id, nome, preco, quantidade, lojaFornecedora)) {
+					System.out.println("produto editado com sucesso");
+				}
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("formato da entrada invalida");
+			opcaoEditar();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			opcaoEditar();
 		}finally {
 		}
 	}
