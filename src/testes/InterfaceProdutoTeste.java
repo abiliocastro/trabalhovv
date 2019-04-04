@@ -4,15 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import entidade.Produto;
 import fronteira.InterfaceMenuProduto;
 import fronteira.Main;
+import fronteira.RepositorioProduto;
 
 public class InterfaceProdutoTeste{
 	
 	InterfaceMenuProduto mp = new InterfaceMenuProduto();
+	RepositorioProduto repoProduto;
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(baos);
 	PrintStream old = System.out;
@@ -21,7 +25,7 @@ public class InterfaceProdutoTeste{
 	// TESTE DA INTERFACE DE PRODUTO
 	// Testando menu
 	@Test
-	void MenuProdutomostrar() throws Exception {
+	void menuProdutoMostrar() throws Exception {
 		this.mudarSaida();
 		mp.mostrar();
 		String mostrado = this.capturarSaida();
@@ -31,6 +35,25 @@ public class InterfaceProdutoTeste{
 		else
 			esperado  = "1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:\r\n";
 		assertEquals(esperado, mostrado);
+	}
+	
+	// Testando opcao listar
+	@Test
+	void menuProdutoListar() {
+		Main.inicializarProdutos();
+		repoProduto = RepositorioProduto.getInstance();
+		ArrayList<Produto> produtosCadastrados = repoProduto.getProdutos();
+		this.mudarSaida();
+		mp.selecionarOpcao(1);
+		String mostrado = this.capturarSaida();
+		String[] produtosMostrados;
+		if(os.equals("linux"))
+			produtosMostrados = mostrado.split("\n");
+		else
+			produtosMostrados = mostrado.split("\r\n");
+		for (int i = 0; i < produtosCadastrados.size(); i++) {
+			assertEquals(produtosCadastrados.get(i).toString(), produtosMostrados[i]);
+		}
 	}
 
 	// Testando saida do caso cadastrar
@@ -82,7 +105,7 @@ public class InterfaceProdutoTeste{
 	@Test
 	void menuProdutoExcluirIdInvalido() {
 		Main.inicializarSistema();
-		System.out.println("DIGITE UM ID INVALIDO (_,@,#,nome)");
+		System.out.println("DIGITE UM ID INVALIDO (Ex: _,@,#,nome)");
 		this.mudarSaida();
 		mp.opcaoExcluir();
 		String mostrado = this.capturarSaida();
@@ -97,7 +120,7 @@ public class InterfaceProdutoTeste{
 	@Test
 	void menuProdutoExcluirIdInexistente() {
 		Main.inicializarSistema();
-		System.out.println("DIGITE UM ID INEXISTENTE (-1,999999)");
+		System.out.println("DIGITE UM ID INEXISTENTE (Ex: 999999)");
 		this.mudarSaida();
 		mp.opcaoExcluir();
 		String mostrado = this.capturarSaida();
