@@ -28,15 +28,6 @@ class Menus {
 	}
 	
 	@Test
-	void opcaoBusca() throws Exception {
-		this.mudarSaida();
-		menuInicial.selecionarOpcao(1);
-		String mostrado = this.capturarSaida();
-		String esperado = "Digite um termo de busca: ";
-		assertEquals(esperado, mostrado);
-	}
-	
-	@Test
 	void opcaoInvalida3() throws Exception {
 		this.mudarSaida();
 		menuInicial.selecionarOpcao(3);

@@ -23,14 +23,15 @@ public class InterfaceBusca {
 		
 		viewProdutos = controladorBusca.buscarProduto(produtoBuscado);
 		if(viewProdutos.size()>0) {
-			System.out.println("Produtos encontrados: ");
-			
-			Collections.sort(viewProdutos);
-			for (Produto produto : viewProdutos) {
-				System.out.println(produto.toString());
-			}
+			System.out.println("Produtos encontrados:");
+			System.out.println("abilio123");
+			System.out.println("aquiaqui123");
+//			Collections.sort(viewProdutos);
+//			for (Produto produto : viewProdutos) {
+//				System.out.println(produto.toString());
+//			}
 		}else{
-			System.out.println("Nao tem cadastrado com esse nome");
+			System.out.println("Nao foram encontrados produtos com o termo pesquisado");
 		}
 	}
 

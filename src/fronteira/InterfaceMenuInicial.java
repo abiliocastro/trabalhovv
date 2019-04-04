@@ -2,6 +2,7 @@ package fronteira;
 
 public class InterfaceMenuInicial {
 	InterfaceLogin interfaceLogin = new InterfaceLogin();
+	InterfaceBusca interfaceBusca = new InterfaceBusca();
 	
 	public void mostra() {
 		System.out.println("1- Buscar | 2- Entrar");
@@ -10,7 +11,7 @@ public class InterfaceMenuInicial {
 	public void selecionarOpcao(int entrada) throws Exception {
 		switch(entrada) {
 			case 1:
-				this.busca();
+				this.interfaceBusca.mostra();
 				break;
 			case 2:
 				this.interfaceLogin.realizarLogin();
@@ -18,10 +19,6 @@ public class InterfaceMenuInicial {
 			default:
 				System.out.println("Opcao Invalida");
 		}
-	}
-	
-	private void busca() {
-		System.out.print("Digite um termo de busca: ");
 	}
 	
 }
