@@ -63,16 +63,7 @@ public class Produto implements Comparable<Produto>{
 				+ ", lojaFornecedora=" + lojaFornecedora + "]";
 	}
 	
-		@Override
-	public int compareTo(Produto outroProduto) {
-		if (this.id < outroProduto.getId()) {
-            return -1;
-        }
-        if (this.id > outroProduto.getId()) {
-            return 1;
-        }
-        return 0;
-	}
+	
 	
 	public boolean match(String padrao) {
 		boolean nomeMatch = this.nome.toLowerCase().contains(padrao.toLowerCase());
@@ -80,5 +71,10 @@ public class Produto implements Comparable<Produto>{
 			return true;
 		} 
 		return false;
+	}
+
+	@Override
+	public int compareTo(Produto outroProduto) {
+		return this.nome.toLowerCase().compareTo(outroProduto.getNome().toLowerCase());
 	}
 }

@@ -55,6 +55,7 @@ public class Main {
 			controladorProduto.cadastrarProduto("Televisao", 340.99f, 1, "Jose Moveis");
 			controladorProduto.cadastrarProduto("Televisao 2", 340.99f, 1, "Outro");
 			controladorProduto.cadastrarProduto("Banana", 1.5f, 880, "Toim das Frutas");
+			controladorProduto.cadastrarProduto("ata", 2.5f, 880, "Toim das Frutas");
 		} catch (Exception e) {
 			e.getMessage();
 		}
