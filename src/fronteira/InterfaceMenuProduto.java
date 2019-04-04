@@ -4,47 +4,55 @@ import java.util.Scanner;
 import controlador.ControladorProduto;
 import entidade.Produto;
 
-public class MenuProduto {
+public class InterfaceMenuProduto {
 	private Scanner sc;
 	private ControladorProduto cp = new ControladorProduto();
 	
-	public MenuProduto() {
+	public InterfaceMenuProduto() {
 		cp = new ControladorProduto();
 		sc = new Scanner(System.in);
 	}
 		
-	public void selecionarOpcao() {
+	public void mostrar() {
+		System.out.println("1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:");
+	}
+	
+	public void lerOpcao() {
 		boolean continuar = true;
-		while(continuar) {
-			System.out.println("1- Listar | 2- Cadastrar | 3- Editar | 4- Excluir | 0 - Sair\nDigite a opc:");
+		while(continuar) {	
 			try {
+				this.mostrar();
 				int entrada = Integer.parseInt(sc.nextLine());
 				
-				switch (entrada) {
-				case 0:
+				if(entrada == 0) {
 					continuar = false;
-					break;
-				case 1:
-					this.opcaoListar();
-					break;
-				case 2:		
-					this.opcaoCadastro();
-					break;
-				case 3:
-					this.opcaoEditar();
-					break;
-				case 4:
-					this.opcaoExcluir();
-					break;
-				default:
-					System.out.println("Opcao invalida!");
+				}else {
+					selecionarOpcao(entrada);
 				}
 			} catch (NumberFormatException e) {
 				System.out.println("formato da entrada invalida");
-				selecionarOpcao();
+				lerOpcao();
 			}
 		}
-		
+	}
+	
+	public void selecionarOpcao(int entrada) {
+		switch (entrada) {
+			case 1:
+				this.opcaoListar();
+				break;
+			case 2:		
+				this.opcaoCadastro();
+				break;
+			case 3:
+				this.opcaoEditar();
+				break;
+			case 4:
+				this.opcaoExcluir();
+				break;
+			default:
+				System.out.println("Opcao invalida!");
+			}		
 	}
 	
 	public void opcaoCadastro() {

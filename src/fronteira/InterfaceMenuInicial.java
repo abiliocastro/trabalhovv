@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class InterfaceMenuInicial {
 	InterfaceLogin interfaceLogin = new InterfaceLogin();
 	InterfaceBusca interfaceBusca = new InterfaceBusca();
-	MenuProduto menuProduto = new MenuProduto();
+	InterfaceMenuProduto menuProduto = new InterfaceMenuProduto();
 	
 	public void mostra() {
 		System.out.println("1- Buscar | 2- Entrar");
@@ -19,7 +19,7 @@ public class InterfaceMenuInicial {
 					break;
 				case "2":
 					if(this.interfaceLogin.realizarLogin()) {
-						this.menuProduto.selecionarOpcao();
+						this.menuProduto.lerOpcao();
 					}
 					break;
 				default:

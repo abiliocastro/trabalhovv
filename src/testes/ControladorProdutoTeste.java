@@ -98,7 +98,7 @@ class ControladorProdutoTeste {
 	@Test
 	void editarProdutoidInexistente() {
 		assertThrows(IdInexistenteException.class, () -> {
-			cp.editarProduto(88, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
+			cp.editarProduto(999, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell");
 		});
 	}
 
@@ -198,12 +198,5 @@ class ControladorProdutoTeste {
 	void listarProdutos() {
 		Main.inicializarSistema();
 		assertEquals(repProdutos.getProdutos(), cp.listarProdutos());
-	}
-	
-	//Testando listar produtos Nulo
-	@Test
-	void listarProdutosNulo() {
-		
-	}
-	
+	}	
 }
