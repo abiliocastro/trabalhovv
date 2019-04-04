@@ -1,6 +1,10 @@
 package controlador;
 
+import java.util.ArrayList;
+
+import entidade.Produto;
 import excecoes.IdInexistenteException;
+import excecoes.IdInvalidoException;
 import excecoes.LojaFornecedoraInvalidaException;
 import excecoes.NomeInvalidoException;
 import excecoes.PrecoInvalidoException;
@@ -39,6 +43,13 @@ public class ControladorProduto {
 		return true;
 	}
 	
+	public boolean validarId(long id) {
+		if(id < 0) {
+			return false;
+		}
+		return true;
+	}
+	
 	public boolean cadastrarProduto(String nome, float preco, int quantidade, String lojaFornecedora) throws Exception{
 		if(!validarNome(nome)) {
 			throw new NomeInvalidoException();
@@ -58,6 +69,22 @@ public class ControladorProduto {
 		return true;
 	}
 	
+	public boolean removerProduto(long id) throws Exception{
+		if(!validarId(id)) {
+			throw new IdInvalidoException();
+		}
+		
+		if(repProdutos.removerProduto(id)) {
+			return true;
+		}else {
+			throw new IdInexistenteException();
+		}
+	}
+	
+	public ArrayList<Produto> listarProdutos(){
+		return repProdutos.getProdutos();
+	}
+
 	public boolean editarProduto(long id, String nome, float preco, int quantidade, String lojaFornecedora) throws Exception {
 		if(!validarNome(nome)) {
 			throw new NomeInvalidoException();

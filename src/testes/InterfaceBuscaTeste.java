@@ -1,8 +1,6 @@
 package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.regex.Pattern;
@@ -66,5 +64,6 @@ class InterfaceBuscaTeste {
 		System.setOut(old);
 		return capturado;
 	}
+	
 
 }

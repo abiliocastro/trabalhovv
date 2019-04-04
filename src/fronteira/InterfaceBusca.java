@@ -33,14 +33,5 @@ public class InterfaceBusca {
 		}else{
 			System.out.println("Nao foram encontrados produtos com o termo pesquisado");
 		}
-	}
-
-	public ControladorBusca getControladorBusca() {
-		return controladorBusca;
-	}
-
-	public void setControladorBusca(ControladorBusca controladorBusca) {
-		this.controladorBusca = controladorBusca;
-	}
-	
+	}	
 }

@@ -15,7 +15,7 @@ public class Main {
 //		InterfaceBusca ib = new InterfaceBusca();
 //		ib.mostra();
 		
-		boolean sair = true;
+		boolean sair = false;
 		while(!sair) {
 			System.out.println("PROC_BUSC 0.1");
 			menuInicial.mostra(); 

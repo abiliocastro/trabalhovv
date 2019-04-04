@@ -1,3 +1,9 @@
+//Possiveis erros no sistema
+
+Na classe interface login, na função realizarLogin() ele não levanta nenhuma exceção;
+
+///
+
 SISTEMA DE BUSCA DE PRODUTOS
 Administrador
 - nomeDeUsuario: String
@@ -59,7 +65,7 @@ leandro          |  mlteamor |   logado
 douglas          |  senha12  |   logado
 123abilio        |   luke    |   usuario invalido
 " "              |   luke    |   usuario invalido
-" "              |    " "    |   usuario invalido  
+" "              |    " "    |   usuario invalido										//////////////////////////// ERROOOOOOOOOOR  
 abilio           |   mike    |   senha incorreta
 abilio           |    " "    |   senha incorreta
 chico            |  isso     |   usuario inexistente

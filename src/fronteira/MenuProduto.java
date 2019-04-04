@@ -2,6 +2,7 @@ package fronteira;
 
 import java.util.Scanner;
 import controlador.ControladorProduto;
+import entidade.Produto;
 
 public class MenuProduto {
 	private Scanner sc;
@@ -24,6 +25,7 @@ public class MenuProduto {
 					continuar = false;
 					break;
 				case 1:
+					this.OpcaoListar();
 					break;
 				case 2:		
 					this.opcaoCadastro();
@@ -31,6 +33,7 @@ public class MenuProduto {
 				case 3:
 					break;
 				case 4:
+					this.OpcaoExcluir();
 					break;
 				default:
 					System.out.println("Opcao invalida!");
@@ -62,6 +65,29 @@ public class MenuProduto {
 			System.out.println(e.getMessage());
 			opcaoCadastro();
 		}finally {
+		}
+	}
+	
+	public void OpcaoExcluir() {
+		try {
+			System.out.println("Digite o ID do produto: ");
+			int id = Integer.parseInt(sc.nextLine());
+			
+			if(cp.removerProduto(id)) {
+				System.out.println("Produto excluido");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("formato da entrada invalida");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+		}
+		
+	}
+	
+	public void OpcaoListar() {
+		for (Produto p: cp.listarProdutos()) {
+			System.out.println(p.toString());
 		}
 	}
 	

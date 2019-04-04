@@ -76,6 +76,15 @@ class ControladorProdutoTeste {
 		}); 
 	}
 	
+	//Testando campo LISTAR
+	@Test
+	void listarProduto() {
+		cp = new ControladorProduto();
+		assertThrows(LojaFornecedoraInvalidaException.class, () -> {
+			cp.cadastrarProduto("Celular Ruim",5000,8,"");
+		}); 
+	}
+	
 	//TESTES DE EDIÇÃO DE PRODUTO
 	@Test
 	void editarProduto() throws Exception {
@@ -152,4 +161,19 @@ class ControladorProdutoTeste {
 			cp.editarProduto(3,"Celular Ruim",5000,8,"");
 		}); 
 	}
+
+	//TESTES DE EXCLUS�O DE PRODUTO
+	@Test
+	void exluirProduto() throws Exception {
+		assertEquals(true, cp.cadastrarProduto("Celular Ruim",5000,8,"Chico Cell"));
+	}
+
+	//Testando campo NOME
+	@Test
+	void exluirProdutoIdInvalidoNulo() {
+		assertThrows(NomeInvalidoException.class, () -> {
+			cp.cadastrarProduto(null,5000,8,"Chico Cell");
+		}); 
+	}
+	
 }

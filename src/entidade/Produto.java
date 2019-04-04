@@ -59,53 +59,19 @@ public class Produto implements Comparable<Produto>{
 	
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+		return "[id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
 				+ ", lojaFornecedora=" + lojaFornecedora + "]";
 	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((lojaFornecedora == null) ? 0 : lojaFornecedora.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + Float.floatToIntBits(preco);
-		result = prime * result + quantidade;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produto other = (Produto) obj;
-		if (id != other.id)
-			return false;
-		if (lojaFornecedora == null) {
-			if (other.lojaFornecedora != null)
-				return false;
-		} else if (!lojaFornecedora.equals(other.lojaFornecedora))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (Float.floatToIntBits(preco) != Float.floatToIntBits(other.preco))
-			return false;
-		if (quantidade != other.quantidade)
-			return false;
-		return true;
-	}
-
-	@Override
+		@Override
 	public int compareTo(Produto outroProduto) {
-		return this.nome.compareTo(outroProduto.getNome().toLowerCase());
+		if (this.id < outroProduto.getId()) {
+            return -1;
+        }
+        if (this.id > outroProduto.getId()) {
+            return 1;
+        }
+        return 0;
 	}
 	
 	public boolean match(String padrao) {

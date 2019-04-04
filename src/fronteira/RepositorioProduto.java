@@ -16,9 +16,12 @@ public class RepositorioProduto {
 		return uniqueInstance;
 	}
 	
-	public void cadastrar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
+	public boolean cadastrar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
 		Produto novoProduto = new Produto(id, nome, preco, quantidade, lojaFornecedora);
-		produtos.add(novoProduto);
+		if(produtos.add(novoProduto)) {
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean editar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
@@ -34,8 +37,14 @@ public class RepositorioProduto {
 		return false;
 	}
 	
-	public boolean removerProduto(int id) {
-		return produtos.remove(id)!=null;
+	public boolean removerProduto(long id) {
+		for (Produto produto : produtos) {
+			if(produto.getId() == id) {
+				produtos.remove(produto);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public ArrayList<Produto> getProdutos(){
