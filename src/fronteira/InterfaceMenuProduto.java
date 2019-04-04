@@ -3,6 +3,7 @@ package fronteira;
 import java.util.Scanner;
 import controlador.ControladorProduto;
 import entidade.Produto;
+import excecoes.IdInexistenteException;
 
 public class InterfaceMenuProduto {
 	private Scanner sc;
@@ -118,9 +119,10 @@ public class InterfaceMenuProduto {
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("formato da entrada invalida");
+		} catch (IdInexistenteException e) {
+			System.out.println("id inexistente");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}finally {
 		}
 		
 	}

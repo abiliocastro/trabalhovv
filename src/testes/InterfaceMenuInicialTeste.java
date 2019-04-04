@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceMenuInicial;
 
-class Menus {
+class InterfaceMenuInicialTeste {
 	InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(baos);
@@ -53,8 +53,6 @@ class Menus {
 			esperado = "Opcao Invalida\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	
-	// TESTES DA INTERFACE MENU PRODUTO
 	
 	private void mudarSaida() {
 		System.setOut(ps);

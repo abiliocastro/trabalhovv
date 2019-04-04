@@ -64,6 +64,51 @@ public class InterfaceProdutoTeste{
 		assertEquals(esperado, mostrado);
 	}
 	
+	@Test
+	void menuProdutoExcluirIdExistente() {
+		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID DE PRODUTO EXISTENTE");
+		this.mudarSaida();
+		mp.opcaoExcluir();
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Digite o ID do produto: \nProduto excluido\n";
+		else
+			esperado = "Digite o ID do produto: \r\nProduto excluido\r\n";
+		assertEquals(esperado, mostrado);
+	}
+	
+	@Test
+	void menuProdutoExcluirIdInvalido() {
+		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID INVALIDO (_,@,#,nome)");
+		this.mudarSaida();
+		mp.opcaoExcluir();
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Digite o ID do produto: \nformato da entrada invalida\n";
+		else
+			esperado = "Digite o ID do produto: \r\nformato da entrada invalida\r\n";
+		assertEquals(esperado, mostrado);
+	}
+	
+	@Test
+	void menuProdutoExcluirIdInexistente() {
+		Main.inicializarSistema();
+		System.out.println("DIGITE UM ID INEXISTENTE (-1,999999)");
+		this.mudarSaida();
+		mp.opcaoExcluir();
+		String mostrado = this.capturarSaida();
+		String esperado;
+		if(os.equals("linux"))
+			esperado = "Digite o ID do produto: \nid inexistente\n";
+		else
+			esperado = "Digite o ID do produto: \r\nid inexistente\r\n";
+		assertEquals(esperado, mostrado);
+	}
+	
 	private void mudarSaida() {
 		System.setOut(ps);
 	}
