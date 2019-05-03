@@ -1,4 +1,4 @@
-package fronteira;
+package fronteira.database;
 
 import java.util.ArrayList;
 import entidade.Produto;

@@ -2,7 +2,7 @@ package controlador;
 
 import java.util.ArrayList;
 import entidade.Produto;
-import fronteira.RepositorioProduto;
+import fronteira.database.RepositorioProduto;
 
 public class ControladorBusca {
 		RepositorioProduto repositorioDeProduto;

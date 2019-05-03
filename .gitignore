@@ -1,4 +1,5 @@
 bin/
+src/fronteira/database/Conexao.java
 
 .classpath
 

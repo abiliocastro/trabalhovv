@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fronteira.RepositorioAdministrador;
+import fronteira.database.RepositorioAdministrador;
 
 class RepositorioAdministradoTeste {
 	RepositorioAdministrador repoAdmin = RepositorioAdministrador.getInstance();
