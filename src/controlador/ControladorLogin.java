@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 import excecoes.SenhaIncorretaException;
 import excecoes.UsuarioInexistenteException;
 import excecoes.UsuarioInvalidoException;
-import fronteira.RepositorioAdministrador;
+import fronteira.database.RepositorioAdministrador;
 import entidade.Administrador;
 
 public class ControladorLogin {

@@ -9,7 +9,7 @@ import excecoes.LojaFornecedoraInvalidaException;
 import excecoes.NomeInvalidoException;
 import excecoes.PrecoInvalidoException;
 import excecoes.QuantidadeInvalidaException;
-import fronteira.RepositorioProduto;
+import fronteira.database.RepositorioProduto;
 
 public class ControladorProduto {
 	RepositorioProduto repProdutos = RepositorioProduto.getInstance();

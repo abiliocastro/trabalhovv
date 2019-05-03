@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import entidade.Produto;
 import fronteira.InterfaceMenuProduto;
 import fronteira.Main;
-import fronteira.RepositorioProduto;
+import fronteira.database.RepositorioProduto;
 
 public class InterfaceProdutoTeste{
 	

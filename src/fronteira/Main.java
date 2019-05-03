@@ -3,6 +3,7 @@ package fronteira;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import controlador.ControladorProduto;
+import fronteira.database.RepositorioAdministrador;
 
 public class Main {
 	static RepositorioAdministrador repoAdmins;
@@ -35,7 +36,7 @@ public class Main {
 	}
 	
 	public static void inicializarSistema() {
-		inicializarUsuarios();
+		//inicializarUsuarios();
 		inicializarProdutos();
 	}
 		

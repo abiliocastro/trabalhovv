@@ -11,6 +11,10 @@ public class Administrador {
 		this.logado = false;
 	}
 
+	public Administrador() {
+		
+	}
+
 	public String getNomeDeUsuario() {
 		return nomeDeUsuario;
 	}

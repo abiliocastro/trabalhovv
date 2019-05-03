@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fronteira.RepositorioProduto;
+import fronteira.database.RepositorioProduto;
 
 class RepositorioProdutoTeste {
 	RepositorioProduto repoProdu = RepositorioProduto.getInstance();

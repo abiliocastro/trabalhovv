@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 import excecoes.*;
 import fronteira.Main;
-import fronteira.RepositorioProduto;
+import fronteira.database.RepositorioProduto;
 
 class ControladorProdutoTeste {
 	private ControladorProduto cp = new ControladorProduto();
