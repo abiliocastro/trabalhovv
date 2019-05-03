@@ -63,7 +63,7 @@ public class InterfaceProdutoTeste{
 			esperado = "Digite o ID do produto: \r\nDigite o nome do produto: \r\nDigite o preco do produto: \r\nDigite a quantidade do produto: \r\nDigite a loja fornecedora do produto: \r\nproduto editado com sucesso\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	
+
 	@Test
 	void menuProdutoExcluirIdExistente() {
 		Main.inicializarSistema();
@@ -108,7 +108,7 @@ public class InterfaceProdutoTeste{
 			esperado = "Digite o ID do produto: \r\nid inexistente\r\n";
 		assertEquals(esperado, mostrado);
 	}
-	
+
 	private void mudarSaida() {
 		System.setOut(ps);
 	}
