@@ -1,19 +1,25 @@
 package fronteira;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import controlador.ControladorProduto;
+import controlador.GeradorProdutos;
 import fronteira.database.RepositorioAdministrador;
 
 public class Main {
 	static RepositorioAdministrador repoAdmins;
 	static ControladorProduto controladorProduto = new ControladorProduto();
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Scanner entrada = new Scanner(System.in);
 		InterfaceMenuInicial menuInicial = new InterfaceMenuInicial();
-		inicializarSistema();
-		
+		try {
+			inicializarSistema();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			
+		}
 		boolean sair = false;
 		String opcao ;
 		while(!sair) {
@@ -35,16 +41,17 @@ public class Main {
 		entrada.close();	
 	}
 	
-	public static void inicializarSistema() {
+	public static void inicializarSistema() throws IOException {
 		//inicializarUsuarios();
-		inicializarProdutos();
+		//inicializarProdutos();
+		//gerarProdutoAleatorios();
 	}
 		
 	public static void inicializarUsuarios() {
 		repoAdmins = RepositorioAdministrador.getInstance();
 		repoAdmins.cadastrarAdministrador("abilio", "luke");
 		repoAdmins.cadastrarAdministrador("leandro", "mlteamor");
-		repoAdmins.cadastrarAdministrador("douglas", "senha12");
+		repoAdmins.cadastrarAdministrador("douglas", "quixera1234");
 		
 	}
 	public static void inicializarProdutos() {
@@ -61,4 +68,40 @@ public class Main {
 		}
 		
 	}
+	public static void gerarProdutoAleatorios() {
+		GeradorProdutos geradorProdutos = new GeradorProdutos();
+		
+			try {
+				int qddProdutosGerados = 1000;
+				int precoMaximoProduto = 5000;
+				int qtdMaximoProduto = 250;
+				
+				
+				System.out.println("Gerando "+qddProdutosGerados+" Produtos Aguarde...");
+				geradorProdutos.GerarProdutosAleatorios(qddProdutosGerados,precoMaximoProduto,qtdMaximoProduto);
+				System.out.println(qddProdutosGerados+" produtos cadastrado no banco de dados!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

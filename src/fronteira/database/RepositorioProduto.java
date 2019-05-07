@@ -1,11 +1,14 @@
 package fronteira.database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 import entidade.Produto;
 
 public class RepositorioProduto {
 	private ArrayList<Produto> produtos; 
-	 
 	private static RepositorioProduto uniqueInstance = new RepositorioProduto();
 	
 	private RepositorioProduto() {
@@ -18,8 +21,34 @@ public class RepositorioProduto {
 	
 	public boolean cadastrar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
 		Produto novoProduto = new Produto(id, nome, preco, quantidade, lojaFornecedora);
-		if(produtos.add(novoProduto)) {
-			return true;
+		String comandoSQL = "INSERT INTO produto(id,nome,preco,quantidade ,loja) VALUES (?,?, ?, ?,?);";
+		Conexao conexao = null;
+		try {
+			conexao = new Conexao();
+			Connection conn = conexao.getConexao();
+			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
+			preparedStatemet.setInt(1, (int) novoProduto.getId());
+			preparedStatemet.setString(2, novoProduto.getNome());
+			preparedStatemet.setFloat(3, novoProduto.getPreco());
+			preparedStatemet.setInt(4, novoProduto.getQuantidade());
+			preparedStatemet.setString(5, novoProduto.getLojaFornecedora());
+			
+			int qtdRowsAffected  = preparedStatemet.executeUpdate();
+			preparedStatemet.close();
+			if(qtdRowsAffected>0) 
+				return true;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conexao.getConexao().close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
@@ -50,5 +79,8 @@ public class RepositorioProduto {
 	public ArrayList<Produto> getProdutos(){
 		return this.produtos;
 	}
+	
+	
+	
 	
 }

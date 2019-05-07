@@ -89,7 +89,7 @@ public class InterfaceProdutoTeste{
 
 	@Test
 	void menuProdutoExcluirIdExistente() {
-		Main.inicializarSistema();
+		//Main.inicializarSistema();
 		System.out.println("DIGITE UM ID DE PRODUTO EXISTENTE PARA EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();
@@ -104,7 +104,7 @@ public class InterfaceProdutoTeste{
 	
 	@Test
 	void menuProdutoExcluirIdInvalido() {
-		Main.inicializarSistema();
+		//Main.inicializarSistema();
 		System.out.println("DIGITE UM ID INVALIDO (Ex: _,@,#,nome) PARA TENTAR EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();
@@ -119,7 +119,7 @@ public class InterfaceProdutoTeste{
 	
 	@Test
 	void menuProdutoExcluirIdInexistente() {
-		Main.inicializarSistema();
+		//Main.inicializarSistema();
 		System.out.println("DIGITE UM ID INEXISTENTE (Ex: 999999) PARA TENTAR EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();

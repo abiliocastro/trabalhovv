@@ -35,7 +35,7 @@ class InterfaceBuscaTeste {
 	@Test
 	void realizarBuscaProdutoNaoEncontrado() {
 		System.out.println("DIGITE UM TERMO QUE NÃO EXISTE NO REPOSITORIO");
-		Main.inicializarSistema();
+	//	Main.inicializarSistema();
 		this.mudarSaida();
 		interfaceBusca.mostra();
 		String mostrado = this.capturarSaida();

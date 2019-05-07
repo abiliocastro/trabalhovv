@@ -14,7 +14,7 @@ class ControladorBuscaTeste {
 	
 	@Test
 	void buscarProduto() {
-		Main.inicializarSistema();
+	//	Main.inicializarSistema();
 		String termoBuscar = "ruim";
 		produtosBuscado = contBusc.buscarProduto(termoBuscar);
 		if(!produtosBuscado.isEmpty()) {
@@ -28,7 +28,7 @@ class ControladorBuscaTeste {
 
 	@Test
 	void buscarProdutoNulo() { 
-		Main.inicializarSistema();
+		//Main.inicializarSistema();
 		produtosBuscado = contBusc.buscarProduto(null);
 		assertTrue(produtosBuscado.isEmpty());
 	}

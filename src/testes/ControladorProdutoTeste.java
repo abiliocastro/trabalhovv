@@ -225,7 +225,7 @@ class ControladorProdutoTeste {
 	//Testando listar correto
 	@Test
 	void listarProdutos() {
-		Main.inicializarSistema();
+	//	Main.inicializarSistema();
 		assertEquals(repProdutos.getProdutos(), cp.listarProdutos());
 	}	
 }
