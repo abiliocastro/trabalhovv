@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexao {
+public class ConexaoExemplo {
 
 	
     private final String url = "jdbc:postgresql://localhost:5432/busca_produtos";
@@ -19,7 +19,7 @@ public class Conexao {
      * @return a Connection object
      * @throws java.sql.SQLException
      */
-    public Conexao() throws SQLException {
+    public ConexaoExemplo() throws SQLException {
         this.conexao = DriverManager.getConnection(url, usuario, senha);
     }
     
