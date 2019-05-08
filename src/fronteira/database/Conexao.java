@@ -6,12 +6,10 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-	private final String url = "jdbc:postgresql://localhost:5432/buscaprodutos";
-    private final String usuario = "postgres";
-    private final String senha = "";
-    //private final String url = "jdbc:postgresql://localhost:5432/busca_produtos";
-    //private final String usuario = "seu_nome_usuario";
-    //private final String senha = "sua_senha";
+	
+    private final String url = "jdbc:postgresql://localhost:5432/busca_produtos";
+    private final String usuario = "seu_nome_usuario";
+    private final String senha = "sua_senha";
     
     private Connection conexao;
     
