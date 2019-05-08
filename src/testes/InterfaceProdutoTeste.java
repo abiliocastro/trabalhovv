@@ -3,6 +3,7 @@ package testes;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -88,8 +89,8 @@ public class InterfaceProdutoTeste{
 	}
 
 	@Test
-	void menuProdutoExcluirIdExistente() {
-		//Main.inicializarSistema();
+	void menuProdutoExcluirIdExistente() throws IOException {
+		Main.inicializarSistema();
 		System.out.println("DIGITE UM ID DE PRODUTO EXISTENTE PARA EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();
@@ -103,8 +104,8 @@ public class InterfaceProdutoTeste{
 	}
 	
 	@Test
-	void menuProdutoExcluirIdInvalido() {
-		//Main.inicializarSistema();
+	void menuProdutoExcluirIdInvalido() throws IOException {
+		Main.inicializarSistema();
 		System.out.println("DIGITE UM ID INVALIDO (Ex: _,@,#,nome) PARA TENTAR EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();
@@ -118,8 +119,8 @@ public class InterfaceProdutoTeste{
 	}
 	
 	@Test
-	void menuProdutoExcluirIdInexistente() {
-		//Main.inicializarSistema();
+	void menuProdutoExcluirIdInexistente() throws IOException {
+		Main.inicializarSistema();
 		System.out.println("DIGITE UM ID INEXISTENTE (Ex: 999999) PARA TENTAR EXCLUIR");
 		this.mudarSaida();
 		mp.opcaoExcluir();

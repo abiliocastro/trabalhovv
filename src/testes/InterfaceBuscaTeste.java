@@ -2,6 +2,7 @@ package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 import fronteira.InterfaceBusca;
@@ -33,9 +34,9 @@ class InterfaceBuscaTeste {
 	}
 	
 	@Test
-	void realizarBuscaProdutoNaoEncontrado() {
+	void realizarBuscaProdutoNaoEncontrado() throws IOException {
 		System.out.println("DIGITE UM TERMO QUE NÃO EXISTE NO REPOSITORIO");
-	//	Main.inicializarSistema();
+		Main.inicializarSistema();
 		this.mudarSaida();
 		interfaceBusca.mostra();
 		String mostrado = this.capturarSaida();

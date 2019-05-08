@@ -25,86 +25,53 @@ public class GeradorProdutos {
 		
 	}
 	
-	public void GerarProdutosAleatorios(int qddProdutosGerados,int precoMaximoProduto,int qtdMaximoProduto) throws IOException {	
-		
-		
+	public void GerarProdutosAleatorios(int qddProdutosGerados,int precoMaximoProduto,int qtdMaximoProduto) throws IOException {		
 		try {
-		
 			Random random = new Random();
-			
-			//int precoMaximoProduto = 5000;
-			//int qtdMaximoProduto = 250;
 			File arquivoProdutos = new File("lista de produtos.txt");
 			File arquivoFornecedores = new File("lista de fornecedores.txt");
-			FileReader lerArquivoProdutos;
-			
-			lerArquivoProdutos = new FileReader(arquivoProdutos);
-			BufferedReader bufferArquivoProdutos = new BufferedReader(lerArquivoProdutos);
-			
-			
+	
+			FileReader lerArquivoProdutos = new FileReader(arquivoProdutos);
 			FileReader lerArquivoFornecedores  = new FileReader(arquivoFornecedores);
+			
+			BufferedReader bufferArquivoProdutos = new BufferedReader(lerArquivoProdutos);
 			BufferedReader bufferArquivoFornecedores = new BufferedReader(lerArquivoFornecedores);
 
-			
-			
 			String palavraProduto = bufferArquivoProdutos.readLine();
+			String palavraFornecedor = bufferArquivoFornecedores.readLine();
+			
 			while (palavraProduto!=null){
 				palavraProduto = bufferArquivoProdutos.readLine();
 				listaNomesProdutos.add(palavraProduto);
 			}
-			
-			
-			String palavraFornecedor = bufferArquivoFornecedores.readLine();
-			
+						
 			while (palavraFornecedor !=null){
 				palavraFornecedor  = bufferArquivoFornecedores.readLine();
 				listaNomesFornecedores.add(palavraFornecedor);
 			}
 			
-			
-			
-			
 			int posProdutos = listaNomesProdutos.size();
 			int posFornecedores = listaNomesFornecedores.size();
 			int id =0;
-			while(id<qddProdutosGerados) {
-				
+			
+			while(id<qddProdutosGerados) {	
 				int numeroDoProduto = random.nextInt(posProdutos);
-				int numeroDoFornecedor = random.nextInt(posFornecedores);
-				
-				
-				
+				int numeroDoFornecedor = random.nextInt(posFornecedores);	
 				float qtdPreco = (random.nextFloat() * precoMaximoProduto)+1;
 				DecimalFormat df = new DecimalFormat("00.00");
 				String str = df.format(qtdPreco);
 				qtdPreco = conveterVirgulaParaPonto(str);
-				
-				
 				int qtdQuantidade = random.nextInt(qtdMaximoProduto) +1 ;
-				
 				String nomeDoProduto = listaNomesProdutos.get(numeroDoProduto);
 				String nomeDoFornecedor = listaNomesFornecedores.get(numeroDoFornecedor);
-				
-			
-				
-				//Produto produto = new Produto(id,nomeDoProduto, qtdPreco, qtdQuantidade, nomeDoFornecedor);
-				//produtoDAO.cadastrarProduto(produto);
+	
 				repProdutos.cadastrar(id,nomeDoProduto, qtdPreco, qtdQuantidade, nomeDoFornecedor);
-				System.out.println("add "+ id +" de "+ qddProdutosGerados);
-				
 				id++;
 			}
-//			for (Produto produtoArmazenado : listaProdutosObj) {
-//				produtoDAO.cadastrarProduto(produtoArmazenado);
-//				System.out.println("[+");
-//			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-	
 	}
 	float conveterVirgulaParaPonto(String numero) {
 		String retorno = new String();
@@ -115,7 +82,6 @@ public class GeradorProdutos {
 				retorno += numero.charAt(i);
 			}
 		}
-		
 		return Float.parseFloat(retorno);
 		
 	}

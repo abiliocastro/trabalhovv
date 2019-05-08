@@ -42,16 +42,16 @@ public class Main {
 	}
 	
 	public static void inicializarSistema() throws IOException {
-		//inicializarUsuarios();
-		//inicializarProdutos();
-		//gerarProdutoAleatorios();
+//		inicializarUsuarios();
+//		inicializarProdutos();
+		gerarProdutoAleatorios();
 	}
 		
 	public static void inicializarUsuarios() {
 		repoAdmins = RepositorioAdministrador.getInstance();
 		repoAdmins.cadastrarAdministrador("abilio", "luke");
 		repoAdmins.cadastrarAdministrador("leandro", "mlteamor");
-		repoAdmins.cadastrarAdministrador("douglas", "quixera1234");
+		repoAdmins.cadastrarAdministrador("douglas", "");
 		
 	}
 	public static void inicializarProdutos() {

@@ -1,6 +1,8 @@
 package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import controlador.ControladorBusca;
@@ -13,8 +15,8 @@ class ControladorBuscaTeste {
 	ArrayList<Produto> produtosBuscado;
 	
 	@Test
-	void buscarProduto() {
-	//	Main.inicializarSistema();
+	void buscarProduto() throws IOException {
+		Main.inicializarSistema();
 		String termoBuscar = "ruim";
 		produtosBuscado = contBusc.buscarProduto(termoBuscar);
 		if(!produtosBuscado.isEmpty()) {
@@ -27,8 +29,8 @@ class ControladorBuscaTeste {
 	}
 
 	@Test
-	void buscarProdutoNulo() { 
-		//Main.inicializarSistema();
+	void buscarProdutoNulo() throws IOException { 
+		Main.inicializarSistema();
 		produtosBuscado = contBusc.buscarProduto(null);
 		assertTrue(produtosBuscado.isEmpty());
 	}
