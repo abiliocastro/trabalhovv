@@ -87,9 +87,9 @@ class ControladorLoginTeste {
 	@Test
 	void logado() throws Exception {
 		Main.inicializarSistema();
-		assertTrue(cl.realizarLogin("abilio", "luke"));
-		assertTrue(cl.realizarLogin("leandro", "mlteamor"));
-		assertTrue(cl.realizarLogin("douglas", "senha12"));
+		assertTrue(cl.realizarLogin("abilio", "maicao1234"));
+		assertTrue(cl.realizarLogin("leandro", "pegador1234"));
+		assertTrue(cl.realizarLogin("douglas", ""));
 	}
 	
 }

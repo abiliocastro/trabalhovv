@@ -121,7 +121,7 @@ class ControladorProdutoTeste {
 	@Test
 	void editarProduto() throws Exception {
 		Main.inicializarSistema();
-		assertEquals(true, cp.editarProduto(2, "Iphone eh Ruim Sim", 8000f, 2, "ChicoCell"));
+		assertEquals(true, cp.editarProduto(1, "Iphone Ruim 2", 8000f, 2, "ChicoCell"));
 	}
 
 	@Test
