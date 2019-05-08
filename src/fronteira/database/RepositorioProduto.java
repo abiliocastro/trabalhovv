@@ -19,19 +19,18 @@ public class RepositorioProduto {
 		return uniqueInstance;
 	}
 	
-	public boolean cadastrar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
-		Produto novoProduto = new Produto(id, nome, preco, quantidade, lojaFornecedora);
-		String comandoSQL = "INSERT INTO produto(id,nome,preco,quantidade ,loja) VALUES (?,?, ?, ?,?);";
+	public boolean cadastrar(String nome, float preco, int quantidade, String lojaFornecedora) {
+		String comandoSQL = "INSERT INTO produto(nome,preco,quantidade ,loja) VALUES (?, ?, ?,?);";
 		Conexao conexao = null;
 		try {
 			conexao = new Conexao();
 			Connection conn = conexao.getConexao();
 			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
-			preparedStatemet.setInt(1, (int) novoProduto.getId());
-			preparedStatemet.setString(2, novoProduto.getNome());
-			preparedStatemet.setFloat(3, novoProduto.getPreco());
-			preparedStatemet.setInt(4, novoProduto.getQuantidade());
-			preparedStatemet.setString(5, novoProduto.getLojaFornecedora());
+			//preparedStatemet.setInt(1, (int) id);
+			preparedStatemet.setString(1, nome);
+			preparedStatemet.setFloat(2,preco);
+			preparedStatemet.setInt(3, quantidade);
+			preparedStatemet.setString(4, lojaFornecedora);
 			
 			int qtdRowsAffected  = preparedStatemet.executeUpdate();
 			preparedStatemet.close();

@@ -14,7 +14,7 @@ INSERT INTO administrador(id, nome, senha) VALUES
 SELECT * FROM administrador
 
 CREATE TABLE produto (
-	id integer,
+	id serial,
 	nome varchar(100),
 	preco real,
 	quantidade integer,

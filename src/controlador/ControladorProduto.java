@@ -64,7 +64,7 @@ public class ControladorProduto {
 			throw new LojaFornecedoraInvalidaException();
 		}
 		
-		repProdutos.cadastrar(ControladorProduto.id, nome, preco, quantidade, lojaFornecedora);
+		repProdutos.cadastrar(nome, preco, quantidade, lojaFornecedora);
 		id++;
 		return true;
 	}

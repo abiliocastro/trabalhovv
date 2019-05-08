@@ -65,7 +65,7 @@ public class GeradorProdutos {
 				String nomeDoProduto = listaNomesProdutos.get(numeroDoProduto);
 				String nomeDoFornecedor = listaNomesFornecedores.get(numeroDoFornecedor);
 	
-				repProdutos.cadastrar(id,nomeDoProduto, qtdPreco, qtdQuantidade, nomeDoFornecedor);
+				repProdutos.cadastrar(nomeDoProduto, qtdPreco, qtdQuantidade, nomeDoFornecedor);
 				id++;
 			}
 		} catch (FileNotFoundException e) {

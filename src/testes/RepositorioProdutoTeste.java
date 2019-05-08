@@ -10,16 +10,16 @@ class RepositorioProdutoTeste {
 	RepositorioProduto repoProdu = RepositorioProduto.getInstance();
 	@Test
 	void cadastrarTeste() {
-		assertTrue(repoProdu.cadastrar(1,"Celular Ruim", 5000, 8, "Chico Cell"));
+		assertTrue(repoProdu.cadastrar("Celular Ruim", 5000, 8, "Chico Cell"));
 	}
 	@Test
 	void editarTeste() {
-		repoProdu.cadastrar(1,"Celular Ruim", 5000, 8, "Chico Cell");
+		repoProdu.cadastrar("Celular Ruim", 5000, 8, "Chico Cell");
 		assertTrue(repoProdu.editar(1,"Iphone Ruim", 5000, 8, "Chico cell"));
 	}
 	@Test
 	void removerProdutoTeste() {
-		repoProdu.cadastrar(1,"Celular Ruim", 5000, 8, "Chico Cell");
+		repoProdu.cadastrar("Celular Ruim", 5000, 8, "Chico Cell");
 		assertTrue(repoProdu.removerProduto(1));
 	}
 	
