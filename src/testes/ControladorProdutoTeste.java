@@ -2,6 +2,9 @@ package testes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 import excecoes.*;
@@ -224,8 +227,8 @@ class ControladorProdutoTeste {
 //TESTE LISTAR PRODUTOS
 	//Testando listar correto
 	@Test
-	void listarProdutos() {
-	//	Main.inicializarSistema();
+	void listarProdutos() throws IOException {
+		Main.inicializarSistema();
 		assertEquals(repProdutos.getProdutos(), cp.listarProdutos());
 	}	
 }
