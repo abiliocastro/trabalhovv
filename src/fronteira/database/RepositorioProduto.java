@@ -41,10 +41,34 @@ public class RepositorioProduto {
 				produto.setLojaFornecedora(rs.getString("loja"));
 				this.produtos.add(produto);
 			}
+			conn.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return this.produtos;
+	}
+	
+	public Produto lerProduto(long id){
+		Produto produto = null;
+		String comandoSQL = "SELECT * FROM produto WHERE id = ?";
+		try {
+			Connection conn = conexao.getConexao();
+			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
+			preparedStatemet.setLong(1, id);
+			ResultSet rs = preparedStatemet.executeQuery();
+			while(rs.next()) {
+				produto = new Produto();
+				produto.setId(rs.getInt("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setPreco(rs.getFloat("preco"));
+				produto.setQuantidade(rs.getInt("quantidade"));
+				produto.setLojaFornecedora(rs.getString("loja"));
+			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return produto;
 	}
 	
 	public boolean cadastrar(String nome, float preco, int quantidade, String lojaFornecedora) {
@@ -78,24 +102,40 @@ public class RepositorioProduto {
 	}
 	
 	public boolean editar(long id, String nome, float preco, int quantidade, String lojaFornecedora) {
-		for (Produto produto : this.produtos) {
-			if(produto.getId() == id) {
-				produto.setNome(nome);
-				produto.setPreco(preco);
-				produto.setQuantidade(quantidade);
-				produto.setLojaFornecedora(lojaFornecedora);
+		String comandoSQL = "UPDATE produto SET nome = ?, preco = ?, quantidade = ?, loja = ? WHERE id = ?";
+		try {
+			Connection conn = conexao.getConexao();
+			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
+			preparedStatemet.setString(1, nome);
+			preparedStatemet.setFloat(2,preco);
+			preparedStatemet.setInt(3, quantidade);
+			preparedStatemet.setString(4, lojaFornecedora);
+			preparedStatemet.setLong(5, id);
+			int qtdRowsAffected  = preparedStatemet.executeUpdate();
+			preparedStatemet.close();
+			conn.close();
+			if(qtdRowsAffected>0)
 				return true;
-			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return false;
 	}
 	
 	public boolean removerProduto(long id) {
-		for (Produto produto : produtos) {
-			if(produto.getId() == id) {
-				produtos.remove(produto);
+		String comandoSQL = "DELETE FROM produto WHERE id = ?";
+		try {
+			Connection conn = conexao.getConexao();
+			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
+			preparedStatemet.setLong(1, id);
+			int rowAffected = preparedStatemet.executeUpdate();
+			if(rowAffected>0) {
 				return true;
 			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}	
