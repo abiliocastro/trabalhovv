@@ -34,7 +34,7 @@ public class RepositorioProduto {
 			ResultSet rs = stmt.executeQuery(comandoSQL);
 			while(rs.next()) {
 				Produto produto = new Produto();
-				produto.setId(rs.getInt("id"));
+				produto.setId(rs.getLong("id"));
 				produto.setNome(rs.getString("nome"));
 				produto.setPreco(rs.getFloat("preco"));
 				produto.setQuantidade(rs.getInt("quantidade"));
