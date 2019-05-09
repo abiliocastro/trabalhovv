@@ -21,6 +21,8 @@ public class RepositorioProdutoTeste {
 	@Mock
 	private PreparedStatement stmt = Mockito.mock(PreparedStatement.class);
 	
+	RepositorioProduto rp = RepositorioProduto.getInstance();
+	
 	@Before
 	public void setUp() throws Exception {
 		Mockito.when(con.getConexao()).thenReturn(c);
@@ -33,12 +35,22 @@ public class RepositorioProdutoTeste {
 		Mockito.doNothing().when(stmt).close();
 		
 	}
+	@Before
+	public void setLer() {
+	//	Mockito.when(methodCall)
+	}
 	
 	@Test
 	public void cadastrar() throws Exception {
-		RepositorioProduto rp = RepositorioProduto.getInstance();
 		rp.setConexao(con);
 		rp.cadastrar("BigBig o bombom", 1.50F, 30, "Loja do Manel");
 		Mockito.verify(stmt, Mockito.times(1)).executeUpdate();
 	}
+	@Test
+	public void lerProdutos() {
+		rp.setConexao(con);
+		//rp.lerProdutos();
+		
+	}
+	
 }
