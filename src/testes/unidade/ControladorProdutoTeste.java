@@ -227,8 +227,8 @@ class ControladorProdutoTeste {
 //TESTE LISTAR PRODUTOS
 	//Testando listar correto
 	@Test
-	void listarProdutos() throws IOException {
-		Main.inicializarSistema();
-		assertEquals(repProdutos.getProdutos(), cp.listarProdutos());
+	void listarProdutos() {
+	//	Main.inicializarSistema();
+		assertEquals(repProdutos.lerProdutos(), cp.listarProdutos());
 	}	
 }

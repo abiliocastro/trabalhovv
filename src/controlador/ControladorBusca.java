@@ -14,7 +14,7 @@ public class ControladorBusca {
 	
 		public ArrayList<Produto> buscarProduto(String termoBuscado) {
 			produtosBuscados = new ArrayList<Produto>();
-			for (Produto produto : repositorioDeProduto.getProdutos()) {
+			for (Produto produto : repositorioDeProduto.lerProdutos()) {
 				if(termoBuscado != null) {
 					if(produto.match(termoBuscado)) {
 						produtosBuscados.add(produto);

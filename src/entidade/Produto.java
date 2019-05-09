@@ -15,12 +15,18 @@ public class Produto implements Comparable<Produto>{
 		this.quantidade = quantidade;
 		this.lojaFornecedora = lojaFornecedora;
 	}
+	
 	public Produto(String nome, float preco, int quantidade, String lojaFornecedora) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
 		this.lojaFornecedora = lojaFornecedora;
 	}
+	
+	public Produto() {
+		
+	}
+	
 	public long getId() {
 		return id;
 	}
