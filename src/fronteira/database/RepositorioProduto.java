@@ -10,6 +10,7 @@ import entidade.Produto;
 public class RepositorioProduto {
 	private ArrayList<Produto> produtos; 
 	private static RepositorioProduto uniqueInstance = new RepositorioProduto();
+	private Conexao conexao;
 	
 	private RepositorioProduto() {
 		produtos = new ArrayList<Produto>();
@@ -19,11 +20,13 @@ public class RepositorioProduto {
 		return uniqueInstance;
 	}
 	
+	public void setConexao(Conexao conexao) {
+		this.conexao = conexao;
+	}
+	
 	public boolean cadastrar(String nome, float preco, int quantidade, String lojaFornecedora) {
 		String comandoSQL = "INSERT INTO produto(nome,preco,quantidade ,loja) VALUES (?, ?, ?,?);";
-		Conexao conexao = null;
 		try {
-			conexao = new Conexao();
 			Connection conn = conexao.getConexao();
 			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
 			preparedStatemet.setString(1, nome);
