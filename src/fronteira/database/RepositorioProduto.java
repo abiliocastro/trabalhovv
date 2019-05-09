@@ -26,7 +26,6 @@ public class RepositorioProduto {
 			conexao = new Conexao();
 			Connection conn = conexao.getConexao();
 			PreparedStatement preparedStatemet = conn.prepareStatement(comandoSQL);
-			//preparedStatemet.setInt(1, (int) id);
 			preparedStatemet.setString(1, nome);
 			preparedStatemet.setFloat(2,preco);
 			preparedStatemet.setInt(3, quantidade);
