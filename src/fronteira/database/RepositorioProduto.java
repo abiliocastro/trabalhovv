@@ -2,7 +2,9 @@ package fronteira.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import entidade.Produto;
@@ -22,6 +24,27 @@ public class RepositorioProduto {
 	
 	public void setConexao(Conexao conexao) {
 		this.conexao = conexao;
+	}
+	
+	public ArrayList<Produto> lerProdutos(){
+		String comandoSQL = "SELECT * FROM produto";
+		try {
+			Connection conn = conexao.getConexao();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(comandoSQL);
+			while(rs.next()) {
+				Produto produto = new Produto();
+				produto.setId(rs.getInt("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setPreco(rs.getFloat("preco"));
+				produto.setQuantidade(rs.getInt("quantidade"));
+				produto.setLojaFornecedora(rs.getString("loja"));
+				this.produtos.add(produto);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return this.produtos;
 	}
 	
 	public boolean cadastrar(String nome, float preco, int quantidade, String lojaFornecedora) {
@@ -75,13 +98,6 @@ public class RepositorioProduto {
 			}
 		}
 		return false;
-	}
-	
-	public ArrayList<Produto> getProdutos(){
-		return this.produtos;
-	}
-	
-	
-	
+	}	
 	
 }

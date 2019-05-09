@@ -43,7 +43,7 @@ public class InterfaceProdutoTeste{
 	void menuProdutoListar() {
 		Main.inicializarProdutos();
 		repoProduto = RepositorioProduto.getInstance();
-		ArrayList<Produto> produtosCadastrados = repoProduto.getProdutos();
+		ArrayList<Produto> produtosCadastrados = repoProduto.lerProdutos();
 		this.mudarSaida();
 		mp.selecionarOpcao(1);
 		String mostrado = this.capturarSaida();

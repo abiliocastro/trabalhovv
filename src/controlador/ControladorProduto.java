@@ -1,5 +1,6 @@
 package controlador;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidade.Produto;
@@ -9,11 +10,11 @@ import excecoes.LojaFornecedoraInvalidaException;
 import excecoes.NomeInvalidoException;
 import excecoes.PrecoInvalidoException;
 import excecoes.QuantidadeInvalidaException;
+import fronteira.database.Conexao;
 import fronteira.database.RepositorioProduto;
 
 public class ControladorProduto {
 	RepositorioProduto repProdutos = RepositorioProduto.getInstance();
-	static long id = 0;
 	
 	public boolean validarNome(String nome) {
 		if(nome == null || !nome.matches("^[a-zA-Z$][a-zA-Z_ $0-9]*$") || nome.length() > 255) {
@@ -63,9 +64,8 @@ public class ControladorProduto {
 		if(!validarLojaFornecedor(lojaFornecedora)) {
 			throw new LojaFornecedoraInvalidaException();
 		}
-		
+		repProdutos.setConexao(new Conexao());
 		repProdutos.cadastrar(nome, preco, quantidade, lojaFornecedora);
-		id++;
 		return true;
 	}
 	
@@ -74,7 +74,7 @@ public class ControladorProduto {
 			throw new IdInvalidoException();
 		}
 		
-		for (Produto p : repProdutos.getProdutos()) {
+		for (Produto p : repProdutos.lerProdutos()) {
 			if(p.getId() == id) {
 				return true;
 			}
@@ -116,7 +116,13 @@ public class ControladorProduto {
 	}
 	
 	public ArrayList<Produto> listarProdutos(){
-		return repProdutos.getProdutos();
+		try {
+			repProdutos.setConexao(new Conexao());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return repProdutos.lerProdutos();
 	}
 
 }
