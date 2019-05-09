@@ -44,7 +44,7 @@ public class Main {
 	public static void inicializarSistema() throws IOException {
 		//inicializarUsuarios();
 		//inicializarProdutos();
-		gerarProdutoAleatorios();
+		//gerarProdutoAleatorios();
 	}
 		
 	public static void inicializarUsuarios() {
