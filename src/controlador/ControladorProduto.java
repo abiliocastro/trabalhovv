@@ -73,11 +73,9 @@ public class ControladorProduto {
 		if(!validarId(id)) {
 			throw new IdInvalidoException();
 		}
-		
-		for (Produto p : repProdutos.lerProdutos()) {
-			if(p.getId() == id) {
-				return true;
-			}
+		repProdutos.setConexao(new Conexao());
+		if(repProdutos.lerProduto(id) != null) {
+			return true;
 		}
 		throw new IdInexistenteException();
 	}
@@ -95,7 +93,7 @@ public class ControladorProduto {
 		if(!validarLojaFornecedor(lojaFornecedora)) {
 			throw new LojaFornecedoraInvalidaException();
 		}
-		
+		repProdutos.setConexao(new Conexao());
 		if(repProdutos.editar(id, nome, preco, quantidade, lojaFornecedora)) {
 			return true;
 		} else {
@@ -107,7 +105,7 @@ public class ControladorProduto {
 		if(!validarId(id)) {
 			throw new IdInvalidoException();
 		}
-		
+		repProdutos.setConexao(new Conexao());
 		if(repProdutos.removerProduto(id)) {
 			return true;
 		}else {

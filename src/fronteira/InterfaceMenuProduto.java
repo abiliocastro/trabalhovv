@@ -104,7 +104,6 @@ public class InterfaceMenuProduto {
 			opcaoEditar();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			opcaoEditar();
 		}finally {
 		}
 	}
