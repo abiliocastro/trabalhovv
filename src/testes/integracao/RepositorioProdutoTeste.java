@@ -66,6 +66,15 @@ public class RepositorioProdutoTeste {
 		Mockito.when(c.prepareStatement(Mockito.startsWith("DELETE"))).thenReturn(preStatement);
 	}
 	
+	@Before
+	public void setBuscar() throws SQLException {
+		Mockito.when(resultSet.getLong("id")).thenReturn(8888L);
+		Mockito.when(resultSet.getString("nome")).thenReturn("Produto Mockado");
+		Mockito.when(resultSet.getFloat("preco")).thenReturn(69.69F);
+		Mockito.when(resultSet.getInt("quantidade")).thenReturn(69);
+		Mockito.when(resultSet.getString("loja")).thenReturn("Loja Mockada");
+	}
+	
 	@Test
 	public void cadastrar() throws Exception {
 		RepositorioProduto rp = RepositorioProduto.getInstance();
@@ -78,7 +87,8 @@ public class RepositorioProdutoTeste {
 	public void lerProdutos() {
 		RepositorioProduto rp = RepositorioProduto.getInstance();
 		rp.setConexao(con);
-		assertFalse(rp.lerProdutos().isEmpty());		
+		boolean result = rp.lerProdutos().isEmpty(); 
+		assertFalse(result);		
 	}
 	
 	@Test
@@ -97,8 +107,12 @@ public class RepositorioProdutoTeste {
 		assertTrue(result);
 	}
 	
-	
-	
-	
+	@Test
+	public void buscarProdutos() {
+		RepositorioProduto rp = RepositorioProduto.getInstance();
+		rp.setConexao(con);
+		boolean result = rp.buscarProdutos("@").isEmpty();
+		assertFalse(result);
+	}
 	
 }

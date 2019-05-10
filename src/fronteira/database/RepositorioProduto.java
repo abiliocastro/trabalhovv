@@ -138,6 +138,30 @@ public class RepositorioProduto {
 			e.printStackTrace();
 		}
 		return false;
-	}	
+	}
+	
+	public ArrayList<Produto> buscarProdutos(String termoBuscado){
+		ArrayList<Produto> produtosEncontrados = new ArrayList<>();
+		String comandoSQL = "SELECT * FROM produto WHERE nome ILIKE '%"+termoBuscado+"%'";
+		try {
+			Connection conn = conexao.getConexao();
+			Statement stmnt = conn.createStatement();
+			ResultSet rs = stmnt.executeQuery(comandoSQL);
+			while(rs.next()) {
+				Produto produto = new Produto();
+				produto.setId(rs.getLong("id"));
+				produto.setNome(rs.getString("nome"));
+				produto.setPreco(rs.getFloat("preco"));
+				produto.setQuantidade(rs.getInt("quantidade"));
+				produto.setLojaFornecedora(rs.getString("loja"));
+				produtosEncontrados.add(produto);
+			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return produtosEncontrados;
+	}
 	
 }

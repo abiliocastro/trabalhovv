@@ -71,37 +71,19 @@ public class Main {
 	public static void gerarProdutoAleatorios() {
 		GeradorProdutos geradorProdutos = new GeradorProdutos();
 		
-			try {
-				int qddProdutosGerados = 1000;
-				int precoMaximoProduto = 5000;
-				int qtdMaximoProduto = 250;
-				
-				
-				System.out.println("Gerando "+qddProdutosGerados+" Produtos Aguarde...");
-				geradorProdutos.GerarProdutosAleatorios(qddProdutosGerados,precoMaximoProduto,qtdMaximoProduto);
-				System.out.println(qddProdutosGerados+" produtos cadastrado no banco de dados!");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+		try {
+			int qddProdutosGerados = 1000;
+			int precoMaximoProduto = 5000;
+			int qtdMaximoProduto = 250;
+			
+			System.out.println("Gerando "+qddProdutosGerados+" Produtos Aguarde...");
+			geradorProdutos.GerarProdutosAleatorios(qddProdutosGerados,precoMaximoProduto,qtdMaximoProduto);
+			System.out.println(qddProdutosGerados+" produtos cadastrado no banco de dados!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
