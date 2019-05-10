@@ -3,6 +3,7 @@ package testes.integracao;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.Connection;
@@ -11,11 +12,13 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import entidade.Administrador;
 import fronteira.database.Conexao;
 import fronteira.database.RepositorioAdministrador;
 
@@ -42,7 +45,8 @@ public class RepositorioAdministradorTeste {
 	}
 	@Before
 	public void setObterAdministrador() throws SQLException {
-		Mockito.when(c.prepareStatement(Mockito.startsWith("SELECT"))).thenReturn(preStatement);
+		Mockito.when(preStatement.executeUpdate()).thenReturn(1);
+		Mockito.doNothing().when(preStatement).close();
 		
 	}
 	
@@ -64,7 +68,9 @@ public class RepositorioAdministradorTeste {
 	public void obterAdministrador() {
 		RepositorioAdministrador repoAdmins = RepositorioAdministrador.getInstance();
 		repoAdmins.setConexao(con);
-		assert(repoAdmins.obterAdmnistrador("jose"));
+		Administrador adm = repoAdmins.obterAdmnistrador("Jose");
+		assertNull(adm);
+	
 	}
 	
 
