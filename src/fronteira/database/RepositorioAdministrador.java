@@ -11,6 +11,7 @@ public class RepositorioAdministrador {
 	
 	private ArrayList<Administrador> administradores;
 	private static RepositorioAdministrador repositorioAdministrador = new RepositorioAdministrador();
+	private Conexao conexao;
 	
 	private RepositorioAdministrador() {
 		administradores = new ArrayList<>();
@@ -19,11 +20,13 @@ public class RepositorioAdministrador {
 	public static RepositorioAdministrador getInstance() {
 		return repositorioAdministrador;
 	}
+	public void setConexao(Conexao conexao) {
+		this.conexao = conexao;
+	}
 	
 	public ArrayList<Administrador> obterAdministradores() {
 		String sql = "SELECT * FROM administrador";
 		try {
-			Conexao conexao = new Conexao();
 			Connection conn = conexao.getConexao();
 			Statement stm = conn.createStatement();
 			ResultSet rs = stm.executeQuery(sql);
@@ -50,7 +53,6 @@ public class RepositorioAdministrador {
 	public Administrador obterAdmnistrador(String nomeDeUsuario) {
 		String sql = "SELECT * FROM administrador WHERE nome = ?";
 		try {
-			Conexao conexao = new Conexao();
 			Connection conn = conexao.getConexao();
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, nomeDeUsuario);

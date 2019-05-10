@@ -9,8 +9,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-
-import entidade.Produto;
 import fronteira.database.RepositorioProduto;
 
 public class GeradorProdutos {
