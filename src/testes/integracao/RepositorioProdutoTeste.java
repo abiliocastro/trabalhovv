@@ -40,8 +40,7 @@ public class RepositorioProdutoTeste {
 	public void setUp() throws Exception {
 		Mockito.when(con.getConexao()).thenReturn(c);		
 		Mockito.when(preStatement.executeUpdate()).thenReturn(1);
-		Mockito.doNothing().when(preStatement).close();
-		
+		Mockito.doNothing().when(preStatement).close();	
 	}
 	
 	@Before

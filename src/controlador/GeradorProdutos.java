@@ -15,12 +15,12 @@ public class GeradorProdutos {
 	private ArrayList<String> listaNomesFornecedores;
 	private ArrayList<String> listaNomesProdutos;
 	RepositorioProduto repProdutos = RepositorioProduto.getInstance();
+	private BufferedReader bufferArquivoProdutos;
+	private BufferedReader bufferArquivoFornecedores;
 	
 	public GeradorProdutos() {
 		listaNomesFornecedores = new ArrayList<>();
 		listaNomesProdutos = new ArrayList<>();
-		
-		
 	}
 	
 	public void GerarProdutosAleatorios(int qddProdutosGerados,int precoMaximoProduto,int qtdMaximoProduto) throws IOException {		
@@ -32,8 +32,8 @@ public class GeradorProdutos {
 			FileReader lerArquivoProdutos = new FileReader(arquivoProdutos);
 			FileReader lerArquivoFornecedores  = new FileReader(arquivoFornecedores);
 			
-			BufferedReader bufferArquivoProdutos = new BufferedReader(lerArquivoProdutos);
-			BufferedReader bufferArquivoFornecedores = new BufferedReader(lerArquivoFornecedores);
+			bufferArquivoProdutos = new BufferedReader(lerArquivoProdutos);
+			bufferArquivoFornecedores = new BufferedReader(lerArquivoFornecedores);
 
 			String palavraProduto = bufferArquivoProdutos.readLine();
 			String palavraFornecedor = bufferArquivoFornecedores.readLine();

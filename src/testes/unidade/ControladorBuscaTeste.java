@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import controlador.ControladorBusca;
 import entidade.Produto;
+import excecoes.NomeInvalidoException;
 import fronteira.Main;
 
 class ControladorBuscaTeste {
@@ -15,7 +16,7 @@ class ControladorBuscaTeste {
 	ArrayList<Produto> produtosBuscado;
 	
 	@Test
-	void buscarProduto() throws IOException {
+	void buscarProduto() throws IOException, NomeInvalidoException {
 		Main.inicializarSistema();
 		String termoBuscar = "ruim";
 		produtosBuscado = contBusc.buscarProduto(termoBuscar);
@@ -29,7 +30,7 @@ class ControladorBuscaTeste {
 	}
 
 	@Test
-	void buscarProdutoNulo() throws IOException { 
+	void buscarProdutoNulo() throws IOException, NomeInvalidoException { 
 		Main.inicializarSistema();
 		produtosBuscado = contBusc.buscarProduto(null);
 		assertTrue(produtosBuscado.isEmpty());

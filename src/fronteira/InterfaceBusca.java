@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import controlador.ControladorBusca;
 import entidade.Produto;
+import excecoes.NomeInvalidoException;
 
 public class InterfaceBusca {
 	private ControladorBusca controladorBusca;
@@ -17,7 +18,7 @@ public class InterfaceBusca {
 		entrada = new Scanner(System.in);
 	} 
 	
-	public void mostra() {
+	public void mostra() throws NomeInvalidoException {
 		System.out.println("Digite um termo de busca:");
 		String produtoBuscado = entrada.nextLine();
 		

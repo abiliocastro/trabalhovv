@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
+
+import excecoes.NomeInvalidoException;
 import fronteira.InterfaceBusca;
 import fronteira.Main;
 
@@ -16,7 +18,7 @@ class InterfaceBuscaTeste {
 	String os = System.getProperty("os.name").toLowerCase();
 	
 	@Test
-	void interfaceBusca() {
+	void interfaceBusca() throws NomeInvalidoException {
 		System.out.println("DIGITE UM TERMO QUE EXISTE NO REPOSITORIO");
 		this.mudarSaida();
 		interfaceBusca.mostra();
@@ -34,7 +36,7 @@ class InterfaceBuscaTeste {
 	}
 	
 	@Test
-	void realizarBuscaProdutoNaoEncontrado() throws IOException {
+	void realizarBuscaProdutoNaoEncontrado() throws IOException, NomeInvalidoException {
 		System.out.println("DIGITE UM TERMO QUE NÃO EXISTE NO REPOSITORIO");
 		Main.inicializarSistema();
 		this.mudarSaida();
