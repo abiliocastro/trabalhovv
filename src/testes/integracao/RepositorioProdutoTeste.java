@@ -14,7 +14,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import entidade.Produto;
 import fronteira.database.Conexao;
 import fronteira.database.RepositorioProduto;
 
@@ -34,8 +33,7 @@ public class RepositorioProdutoTeste {
 	@Mock
 	private Statement statement = Mockito.mock(Statement.class);
 	
-	Produto produto = null;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		Mockito.when(con.getConexao()).thenReturn(c);		

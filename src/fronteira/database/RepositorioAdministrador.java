@@ -1,7 +1,6 @@
 package fronteira.database;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -51,12 +50,11 @@ public class RepositorioAdministrador {
 	}
 	
 	public Administrador obterAdmnistrador(String nomeDeUsuario) {
-		String sql = "SELECT * FROM administrador WHERE nome = ?";
+		String sql = "SELECT * FROM administrador WHERE nome ilike '"+ nomeDeUsuario+"';";
 		try {
 			Connection conn = conexao.getConexao();
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, nomeDeUsuario);
-			ResultSet rs = pstm.executeQuery();
+			Statement stmnt = conn.createStatement();
+			ResultSet rs = stmnt.executeQuery(sql);
 			if(rs.next()) {
 				Administrador admin = new Administrador();
 				admin.setNomeDeUsuario(rs.getString("nome"));

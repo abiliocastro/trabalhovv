@@ -3,8 +3,6 @@ package testes.unidade;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.io.IOException;
-
 import org.junit.jupiter.api.Test;
 import controlador.ControladorProduto;
 import excecoes.*;
@@ -124,7 +122,7 @@ class ControladorProdutoTeste {
 	@Test
 	void editarProduto() throws Exception {
 		Main.inicializarSistema();
-		assertEquals(true, cp.editarProduto(1, "Iphone Ruim 2", 8000f, 2, "ChicoCell"));
+		assertEquals(true, cp.editarProduto(2100, "Iphone Ruim 2", 8000f, 2, "ChicoCell"));
 	}
 
 	@Test

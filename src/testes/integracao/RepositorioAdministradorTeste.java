@@ -1,8 +1,8 @@
 package testes.integracao;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -32,6 +32,8 @@ public class RepositorioAdministradorTeste {
 	@Mock
 	PreparedStatement preStatement = Mockito.mock(PreparedStatement.class);
 	
+	private Administrador adminstrador;
+	
 	@Mock
 	ResultSet resultSet = Mockito.mock(ResultSet.class);
 	
@@ -41,7 +43,14 @@ public class RepositorioAdministradorTeste {
 	}
 	@Before
 	public void setObterAdministrador() throws SQLException {
+		
+		adminstrador = new Administrador();
+		adminstrador.setNomeDeUsuario("Admin");
+		adminstrador.setSenha("Admin");
+		
 		Mockito.when(preStatement.executeUpdate()).thenReturn(1);
+		Mockito.when(resultSet.getString("nome")).thenReturn(adminstrador.getNomeDeUsuario());
+		Mockito.when(resultSet.getString("senha")).thenReturn(adminstrador.getSenha());
 		Mockito.doNothing().when(preStatement).close();
 		
 	}
@@ -61,12 +70,12 @@ public class RepositorioAdministradorTeste {
 	}
 	
 	@Test
-	public void obterAdministrador() {
+	public void obterAdministrador() throws SQLException {
 		RepositorioAdministrador repoAdmins = RepositorioAdministrador.getInstance();
 		repoAdmins.setConexao(con);
-		Administrador adm = repoAdmins.obterAdmnistrador("Jose");
-		assertNull(adm);
-	
+		Administrador admLido = repoAdmins.obterAdmnistrador("admin");
+		
+		assertEquals(admLido.getNomeDeUsuario(),adminstrador.getNomeDeUsuario());
 	}
 	
 
