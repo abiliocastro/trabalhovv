@@ -5,10 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
+import fronteira.database.Conexao;
 import fronteira.database.RepositorioProduto;
 
 public class GeradorProdutos {
@@ -26,8 +28,8 @@ public class GeradorProdutos {
 	public void GerarProdutosAleatorios(int qddProdutosGerados,int precoMaximoProduto,int qtdMaximoProduto) throws IOException {		
 		try {
 			Random random = new Random();
-			File arquivoProdutos = new File("lista de produtos.txt");
-			File arquivoFornecedores = new File("lista de fornecedores.txt");
+			File arquivoProdutos = new File("database/lista de produtos.txt");
+			File arquivoFornecedores = new File("database/lista de fornecedores.txt");
 	
 			FileReader lerArquivoProdutos = new FileReader(arquivoProdutos);
 			FileReader lerArquivoFornecedores  = new FileReader(arquivoFornecedores);
@@ -62,7 +64,12 @@ public class GeradorProdutos {
 				int qtdQuantidade = random.nextInt(qtdMaximoProduto) +1 ;
 				String nomeDoProduto = listaNomesProdutos.get(numeroDoProduto);
 				String nomeDoFornecedor = listaNomesFornecedores.get(numeroDoFornecedor);
-	
+				try {
+					repProdutos.setConexao(new Conexao());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				repProdutos.cadastrar(nomeDoProduto, qtdPreco, qtdQuantidade, nomeDoFornecedor);
 				id++;
 			}
